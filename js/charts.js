@@ -33,6 +33,20 @@ function DrawCharts(chartData){
                 });
                 RadilaLegend($(chartData[i].element), Radialdata);
             }
+            if(chartData[i].type == 'radialBar2'){
+                var Radialdata = chartData[i].data;
+                Radialdata.reverse();
+                RadilaBar  = $(chartData[i].element).radialBar({
+                    data: Radialdata,
+                    width: "250",
+                    height: "250",
+                    padding: 10,
+                    strokeCloneCircle: 1,
+                    round: false,
+                    tooltip: false,
+                });
+                RadilaLegend($(chartData[i].element), Radialdata);
+            }
             if(chartData[i].type == 'simpleBar'){
                 drawSimpleBar($(chartData[i].element), chartData[i].data);
             }
@@ -267,6 +281,107 @@ function drawShadowLine(element, data, borderColor) {
 
     }
 }
+function drawLineDot(element, data, dotColor) {
+    if(data.length > 0 && $(element).length>0) {
+        var maxValue = parseInt(data[0].progress);
+        var minValue = parseInt(data[0].progress);
+        var total = 0;
+        for (let i = 0; i < data.length; i++) {
+            total += parseInt(data[i].progress);
+            if(maxValue<data[i].progress){
+                maxValue = parseInt(data[i].progress);
+            }
+            if(minValue>data[i].progress){
+                minValue = parseInt(data[i].progress);
+            }
+        }
+        var maxAxes = 1;
+        var minAxes = 0;
+        var axes = new Array();
+        var step = 1;
+        if(maxValue < 1) {
+            maxAxes = Math.round(maxValue*10)/10 + 0.1;
+            step = 0.1;
+        }
+        else if(maxValue < 10) {
+            maxAxes = Math.round(maxValue)/ + 1;
+            step = 1;
+        }
+        else {
+            step = 5;
+            while ((maxValue + step)/step > 9 || step>10000){
+                if(step >=200) {
+                    step += 100;
+                }
+                else if(step >=50) {
+                    step += 50;
+                }
+                else if(step >=30) {
+                    step += 10;
+                }
+                else {
+                    step += 5;
+                }
+            }
+            maxAxes = maxValue + step;
+            if(minValue > step && maxAxes > 100){
+                minAxes = step;
+            }
+        }
+        var axesValue = minAxes;
+        for (let i = 0; axesValue < maxAxes + step; i++) {
+            axes.push(axesValue);
+            axesValue = axesValue + step;
+        }
+    
+        var percentValue = new Array(data.length);
+        var percentPosition = new Array(data.length);
+    
+        var minValuePosition = axes[0];
+        var maxValuePosition = axes[axes.length-1];
+        var axesRange = maxValuePosition - minValuePosition;
+        var positionPercent = 100/axesRange;
+        var valuePercent = 100/total;
+    
+        for (let i = 0; i < data.length; i++) {
+            if(parseInt(data[i].progress) > 0){
+                percentValue[i] = Math.round(valuePercent*parseInt(data[i].progress));
+                percentPosition[i] = Math.round(positionPercent*(parseInt(data[i].progress) - minValuePosition));
+            }
+            else {
+                percentValue[i] = 0;
+                percentPosition[i] = 0;
+            }
+        }
+    
+        var str = '<div class="lineDotcont">';
+        str += '<div class="lineDotlist">';
+        for (let i = 0; i < data.length; i++) {
+            str += 
+            '<div class="lineDotRow">'
+            +'    <div class="label">' + data[i].labelText + '</div>'
+            +'  <div class="line-col">'
+            +'      <div class="line" style="background: linear-gradient(90deg, '+ data[i].backgroundStart + ' 0%, '+ data[i].backgroundEnd + ' 100%);">'
+            +'          <div class="dot" style="left: calc('+ percentPosition[i] + '% - 7px);border-color: '+ dotColor +'"></div>'
+            +'          <div class="tooltip" style="left: calc('+ percentPosition[i] + '% - 37px);">' + percentValue[i] + '% / ' + data[i].progress + ' шт</div>'
+            +'      </div>'
+            +'  </div>'
+            +'</div>';
+        }
+        str += '</div>';
+        str += '<div class="y-axis">';
+        for (let i = 0; i < axes.length; i++) {
+            str +=
+            '<div class="axis-item">'
+            +'    ' + axes[i] + '<br>'
+            +'  шт'
+            +'</div>';
+        }
+        str += '</div>';
+        str += '</div>';
+        $(element).append(str);
+    }
+}
 function ClearChart(chartData){
     $('.doughnutTipExpand').remove();
     $('.pyraamidTip').remove();
@@ -322,6 +437,116 @@ function RadilaLegend(el, Radialdata){
     }
     legendHtml += '</div>';
     legendBottomHtml += '</div>';
-    $(legendHtml).appendTo(legend);
-    $(legendBottomHtml).appendTo(legendBottom);
+    if(legend.length > 0){
+        $(legendHtml).appendTo(legend);
+    }
+    if(legendBottomHtml.length > 0){
+        $(legendBottomHtml).appendTo(legendBottom);
+    }
+}
+function drawVerticalBar(element, data) {
+    if($(element).length==1 && data.length > 0){
+        var id = element.split('.')[1];
+        var width = 300;
+        var height = 200;
+        if(window.screen.width > 768 && window.screen.width < 992){
+            width = 350;
+            height = 200;
+        }
+        else if(window.screen.width > 500 && window.screen.width <= 768) {
+            width = 750;
+            height = 250;
+        }
+        else if(window.screen.width <= 500) {
+            width = 350;
+            height = 200;
+        }
+        var canvas = '<canvas  id="' + id + '" style="height: '+ height + 'px; width: '+ width +'px;"></canvas>';
+        $(canvas).appendTo($(element));
+        var newData = new Array(data.length);
+        var backgroundColor = new Array(data.length);
+        var labels = new Array(data.length);
+        for (let i = 0; i < data.length; i++) {
+            labels[i] = data[i].labelText;
+            backgroundColor[i] = data[i].background;
+            newData[i] = data[i].progress;
+        }
+
+        var ChartData = {
+            labels: labels,
+            datasets: [{
+                data: newData,
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: backgroundColor,
+                borderWidth: 0
+            }]
+        };
+
+        var vertical = document.getElementById(id).getContext('2d');
+        let fontSizeTicks = 8;
+        var myBarChart = new Chart(vertical, {
+            type: 'bar',
+            data: ChartData,
+            options: {
+                tooltips: {
+                    enabled: true,
+                    mode: 'point',
+                    backgroundColor: '#C9C9C9',
+                    titleFontSize: 8,
+                    titleAlign: 'center',
+                    xPadding: 10,
+                    yPadding: 5,
+                    cornerRadius: 10,
+                    displayColors: false,
+                    callbacks: {
+                        title: function() {},
+                        label: function(tooltipItem, data) {
+                            var values = data.datasets[tooltipItem.datasetIndex].data;
+                            var total = 0;
+                            for(let i = 0; i < values.length; i++){
+                                total += parseInt(values[i]);
+                            }
+                            var percent;
+                            if(parseInt(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index])) {
+                                percent = Math.round((100/total)*data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
+                            }
+                            else {
+                                percent = 0;
+                            }
+                            var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] || '';
+                            label =  percent + '% / '+ label + ' шт';
+                            return label;
+                        }
+                    }
+                },
+                hover: {mode: null},
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            color: '#fff',
+                            lineWidth: 0
+                        },
+                        ticks: {
+                            fontSize: fontSizeTicks,
+                            min: 0
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines: {
+                            color: '#D5D3D3',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            fontSize: fontSizeTicks,
+                            padding: 5,
+                            beginAtZero: true
+                        }
+                    }],
+                },
+            }
+        });
+    }
 }

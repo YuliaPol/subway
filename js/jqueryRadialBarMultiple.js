@@ -103,7 +103,9 @@ RadialBar.prototype = {
             r = r - division;
             raiusCircle = raiusCircle - division;
         }
-        self._buildCenterCircle(self.options.centerText, raiusCircle);
+        if(self.options.centerText){
+            self._buildCenterCircle(self.options.centerText, raiusCircle);
+        }
         // self._addShadow();
     },
 

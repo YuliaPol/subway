@@ -464,6 +464,42 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         padding-bottom: 10px;
         padding-left: 25px;
         padding-right: 25px;
+        .pd-20 {
+            padding: 20px;
+        }
+        .charts-section {
+            border-bottom: 1px solid #BEBEBE;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            .manager-header {
+                font-family: $fontpage;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 17px;
+                color: #494343;
+                padding-bottom: 20px;
+                padding-top: 20px;
+                padding-left: 20px;
+            }
+            .chart-box {
+                .chart-box-conntent {
+                    .chart-header {
+                        font-size: 12px;
+                        line-height: 14px;
+                    }
+                }
+            }
+        }
+        .flex-33 {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            & > div {
+                width: 33.3%;
+            }
+        }
         .flex-50 {
             display: flex;
             align-items: stretch;
@@ -472,27 +508,27 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
             & > div {
                 width: 50%;
             }
-            .chart-box {
-                padding: 15px;
-                .chart-box-conntent {
-                    background: #FFFFFF;
-                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-                    border-radius: 10px;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: stretch;
-                    justify-content: space-between;
-                    .chart-header {
-                        font-family: Helvetica;
-                        font-style: normal;
-                        font-weight: normal;
-                        font-size: 15px;
-                        line-height: 17px;
-                        text-align: left;
-                        color: #000000;
-                        padding: 10px 20px;
-                    }
+        }
+        .chart-box {
+            padding: 10px;
+            .chart-box-conntent {
+                background: #FFFFFF;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: space-between;
+                .chart-header {
+                    font-family: Helvetica;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 15px;
+                    line-height: 17px;
+                    text-align: left;
+                    color: #000000;
+                    padding: 10px 20px;
                 }
             }
         }
@@ -614,6 +650,108 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                     color: #000000;
                 }
             }
+        }
+    }
+}
+.lineDotcont {
+    .lineDotlist {
+        .lineDotRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .label {
+                width: 55px;
+                min-width: 55px;
+                padding-right: 5px;
+                font-family: $fontpage;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 8px;
+                line-height: 8px;
+                color: #1E1E1E;
+                text-align: left;
+            }
+            .line-col {
+                width: calc(100% - 55px);
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #F3F3F3;
+                .line {
+                    background: linear-gradient(90deg, #FD2679 0%, #FFD1E2 100%);
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+                    height: 6px;
+                    position: relative;
+                    border-radius: 0px 100px 100px 0px;
+                    .dot {
+                        position: absolute;
+                        width: 14px;
+                        height: 14px;
+                        background: #FFFFFF;
+                        border: 3px solid #FFD1E2;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+                        border-radius: 50%;
+                        top: -4px;
+                        left: calc(50% - 7px);
+                        z-index: 100;
+                        &:hover {
+                            & + .tooltip {
+                                opacity: 1;
+                                z-index: 150;
+                                transition: opacity 0.3s ease-in;
+                            }
+                        }
+                    }
+                    .tooltip {
+                        z-index: 50;
+                        width: 70px;
+                        position: absolute;
+                        background: #C9C9C9;
+                        padding: 6px 7px;
+                        border-radius: 10px;
+                        font-family: $fontpage;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 8px;
+                        line-height: 10px;
+                        color: #FFFFFF;
+                        text-align: center;
+                        top: -35px;
+                        left: calc(50% - 30px);
+                        opacity: 0;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: calc(50% - 2.5px);
+                            top: 100%;
+                            width: 0;
+                            height: 0;
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-top: 5px solid #C9C9C9;
+                            clear: both;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .y-axis {
+        margin-left: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 5px;
+        .axis-item {
+            max-width: calc(100% / 9);
+            width: auto;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 8px;
+            line-height: 10px;
+            color: #1E1E1E;
+            text-align: left;
         }
     }
 }
