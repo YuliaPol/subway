@@ -98,6 +98,128 @@
                     </div>
                 </div>
                 <div class="charts-wrapper">
+                    <div class="charts-section">
+                        <div class="blocks-list">
+                            <div class="block-wrapper">
+                                <div class="block-item block-blue">
+                                    <div class="icon-col">
+                                        <div class="icon icon-operator"></div>
+                                    </div>
+                                    <div class="info-col">
+                                        <div class="label">Операторов в сети</div>
+                                        <div class="value">34</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-wrapper">
+                                <div class="block-item block-orange">
+                                    <div class="icon-col">
+                                        <div class="icon icon-chat"></div>
+                                    </div>
+                                    <div class="info-col">
+                                        <div class="label">Диалогов сейчас</div>
+                                        <div class="value">135</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-wrapper">
+                                <div class="block-item block-green">
+                                    <div class="icon-col">
+                                        <div class="icon icon-tools"></div>
+                                    </div>
+                                    <div class="info-col">
+                                        <div class="label">Сейчас в работе</div>
+                                        <div class="value">435</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-wrapper">
+                                <div class="block-item block-red">
+                                    <div class="icon-col">
+                                        <div class="icon icon-checkmark"></div>
+                                    </div>
+                                    <div class="info-col">
+                                        <div class="label">Завершено</div>
+                                        <div class="value">512</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-50 pad-top-30">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header">
+                                    Количество пользователей
+                                </div>
+                                <div class="chart-content">
+                                    <div class="vertical-bar-wrapper">
+                                        <div class="users-summary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header">
+                                    Количество сообщений
+                                </div>
+                                <div class="chart-content">
+                                    <div class="vertical-bar-wrapper">
+                                        <div class="messages-summary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-full-width">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header">
+                                    Время обработки заказа
+                                </div>
+                                <div class="chart-content">
+                                    <div class="flex-chart-circle">
+                                        <div class="chart-wrapper">
+                                            <div class="chart-order-time"></div>
+                                        </div>
+                                        <div class="circle-wrapper">
+                                            <div class="circle-block circle-block-orange">
+                                                <div class="circle-item">
+                                                    <div class="label">Среднее время:</div>
+                                                    <div class="value">2 мин. 40 сек.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-full-width">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header">
+                                    Время обработки заказа
+                                </div>
+                                <div class="chart-content">
+                                    <div class="flex-chart-circle">
+                                        <div class="chart-wrapper">
+                                            <div class="chart-ratings"></div>
+                                        </div>
+                                        <div class="circle-wrapper">
+                                            <div class="circle-block circle-block-green">
+                                                <div class="circle-item">
+                                                    <div class="label">Среднее время:</div>
+                                                    <div class="value">2 мин. 40 сек.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,539 +232,174 @@
     <script>
         var chartData = new Array();
         chartData.push({
-            element: '.lineDot-1', // класс елемента
-            type: 'lineDot',               //тип графіка
-            dotColor: '#FFD1E2',
-            data: [                          //данные графика      
+            element: '.users-summary', // класс елемента
+            type: 'shadowLine2',               //тип графіка
+            borderColor: '#DEB7E8',
+            data: [                          //данные графика  
                 {
-                    backgroundStart: " #FD2679",
-                    backgroundEnd: "#FFD1E2",
-                    progress: "80",
-                    labelText: "Полный  восторг"
+                    progress: "28",
+                    labelText: "01.01"
                 },
                 {
-                    backgroundStart: "#F7669E",
-                    backgroundEnd: "#FFD1E2",
-                    progress: "70",
-                    labelText: "Понравилось"
+                    progress: "35",
+                    labelText: "02.01"
                 },
                 {
-                    backgroundStart: "#F14D8D",
-                    backgroundEnd: "#FFD1E2",
+                    progress: "32",
+                    labelText: "03.01"
+                },
+                {
+                    progress: "45",
+                    labelText: "04.01"
+                },
+                {
+                    progress: "56",
+                    labelText: "05.01"
+                }
+            ]
+        });
+        chartData.push({
+            element: '.messages-summary', // класс елемента
+            type: 'shadowLine2',               //тип графіка
+            borderColor: '#90CEE9',
+            data: [                          //данные графика  
+                {
+                    progress: "38",
+                    labelText: "01.01"
+                },
+                {
+                    progress: "20",
+                    labelText: "02.01"
+                },
+                {
+                    progress: "40",
+                    labelText: "03.01"
+                },
+                {
+                    progress: "15",
+                    labelText: "04.01"
+                },
+                {
+                    progress: "40",
+                    labelText: "05.01"
+                }
+            ]
+        });
+        chartData.push({
+            element: '.chart-order-time', // класс елемента
+            type: 'TimeChart',               //тип графіка
+            data: [                          //данные графика  
+                {
+                    progress: "23",
+                    labelText: "01.01"
+                },
+                {
+                    progress: "6",
+                    labelText: "02.01"
+                },
+                {
+                    progress: "15",
+                    labelText: "03.01"
+                },
+                {
+                    progress: "17",
+                    labelText: "04.01"
+                },
+                {
+                    progress: "6",
+                    labelText: "05.01"
+                },
+                {
+                    progress: "5",
+                    labelText: "06.01"
+                },
+                {
+                    progress: "20",
+                    labelText: "07.01"
+                },
+                {
+                    progress: "18",
+                    labelText: "08.01"
+                },
+
+                {
+                    progress: "17",
+                    labelText: "09.01"
+                },
+                {
+                    progress: "15",
+                    labelText: "10.01"
+                },
+                {
+                    progress: "5",
+                    labelText: "11.01"
+                }
+                ]
+            });
+
+            chartData.push({
+            element: '.chart-ratings', // класс елемента
+            type: 'RatingsChart',               //тип графіка
+            data: [                          //данные графика  
+                {
+                    progress: "23",
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "0 баллов"
+                },
+                {
                     progress: "30",
-                    labelText: "Чего-то не хватило"
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "1 балл"
                 },
                 {
-                    backgroundStart: "#FFA2C6",
-                    backgroundEnd: "#FFD1E2",
+                    progress: "15",
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "2 балла"
+                },
+                {
+                    progress: "25",
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "3 балла"
+                },
+                {
                     progress: "60",
-                    labelText: "Не понравилось"
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "4 балла"
                 },
                 {
-                    backgroundStart: "#FFD3E4",
-                    backgroundEnd: "#FFD1E2",
-                    progress: "10",
-                    labelText: "Все плохо"
-                },
-                {
-                    backgroundStart: "#FFD3E4",
-                    backgroundEnd: "#FFD1E2",
-                    progress: "49",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.lineDot-2', // класс елемента
-            type: 'lineDot',               //тип графіка
-            dotColor: '#F3A6FF',
-            data: [                          //данные графика      
-                {
-                    backgroundStart: "#ED7EFF",
-                    backgroundEnd: "#F5B6FF",
-                    progress: "40",
-                    labelText: "Полный  восторг"
-                },
-                {
-                    backgroundStart: "#CC68DC",
-                    backgroundEnd: "#EAC8EF",
-                    progress: "80",
-                    labelText: "Понравилось"
-                },
-                {
-                    backgroundStart: "#B979C4",
-                    backgroundEnd: "#D0BFD2",
-                    progress: "70",
-                    labelText: "Чего-то не хватило"
-                },
-                {
-                    backgroundStart: "#DE9DE9",
-                    backgroundEnd: "#E8DDE1",
-                    progress: "20",
-                    labelText: "Не понравилось"
-                },
-                {
-                    backgroundStart: "#BB9CBF",
-                    backgroundEnd: "#DBD2DC",
                     progress: "50",
-                    labelText: "Все плохо"
+                    background: 'linear-gradient(180deg, #FFC8C4 0%, #E6574A 100%)',
+                    labelText: "5 баллов"
                 },
                 {
-                    backgroundStart: "#E6C2EB",
-                    backgroundEnd: "#FDEBFF",
-                    progress: "29",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.lineDot-3', // класс елемента
-            type: 'lineDot',               //тип графіка
-            dotColor: '#A8A6F2',
-            data: [                          //данные графика      
-                {
-                    backgroundStart: "#3E3AFF",
-                    backgroundEnd: "#B0AEFF",
-                    progress: "70",
-                    labelText: "Полный  восторг"
+                    progress: "20",
+                    background: 'linear-gradient(180deg, #FFF8DA 0%, #F4CE32 100%)',
+                    labelText: "6 баллов"
                 },
                 {
-                    backgroundStart: "#534FF1",
-                    backgroundEnd: "#9290ED",
-                    progress: "10",
-                    labelText: "Понравилось"
+                    progress: "18",
+                    background: 'linear-gradient(180deg, #FFF8DA 0%, #F4CE32 100%)',
+                    labelText: "7 баллов"
                 },
+
                 {
-                    backgroundStart: "#6E6BEF",
-                    backgroundEnd: "#AAA9F2",
                     progress: "60",
-                    labelText: "Чего-то не хватило"
+                    background: 'linear-gradient(180deg, #FFF8DA 0%, #F4CE32 100%)',
+                    labelText: "8 баллов"
                 },
                 {
-                    backgroundStart: "#8F8CF2",
-                    backgroundEnd: "#BEBCFF",
-                    progress: "25",
-                    labelText: "Не понравилось"
-                },
-                {
-                    backgroundStart: "#A5A2FD",
-                    backgroundEnd: "#D7D6FF",
                     progress: "80",
-                    labelText: "Все плохо"
+                    background: 'linear-gradient(180deg, #CBFFC8 0%, #62B65D 100%)',
+                    labelText: "9 баллов"
                 },
                 {
-                    backgroundStart: "#CBC9F8",
-                    backgroundEnd: "#E5E4FF",
-                    progress: "70",
-                    labelText: "Трудно сказать"
+                    progress: "85",
+                    background: 'linear-gradient(180deg, #CBFFC8 0%, #62B65D 100%)',
+                    labelText: "10 баллов"
                 }
-            ],
-        });
-        chartData.push({
-            element: '.verticalBar-1', // класс елемента
-            type: 'verticalBar',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#C8DAFF",
-                    progress: "30",
-                    labelText: ["Полный", "восторг"]
-                },
-                {
-                    background: "#AEC9FF",
-                    progress: "45",
-                    labelText: ["Понрави-", "лось"]
-                },
-                {
-                    background: "#89B1FF",
-                    progress: "65",
-                    labelText: ["Чего-то", "не хватило"]
-                },
-                {
-                    background: "#518BFF",
-                    progress: "80",
-                    labelText: ["Не", "понрави-", "лось"]
-                },
-                {
-                    background: "#306ADB",
-                    progress: "90",
-                    labelText: ["Все", "плохо"]
-                },
-                {
-                    background: "#306ADB",
-                    progress: "100",
-                    labelText: ["Трудно", "сказать"]
-                }
-            ],
-        });
-        chartData.push({
-            element: '.verticalBar-2', // класс елемента
-            type: 'verticalBar',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#C0E9C9",
-                    progress: "30",
-                    labelText: ["Полный", "восторг"]
-                },
-                {
-                    background: "#96DAA6",
-                    progress: "45",
-                    labelText: ["Понрави-", "лось"]
-                },
-                {
-                    background: "#9BEDAE",
-                    progress: "65",
-                    labelText: ["Чего-то", "не хватило"]
-                },
-                {
-                    background: "#9FDD7D",
-                    progress: "80",
-                    labelText: ["Не", "понрави-", "лось"]
-                },
-                {
-                    background: "#8BD664",
-                    progress: "90",
-                    labelText: ["Все", "плохо"]
-                },
-                {
-                    background: "#73CE47",
-                    progress: "100",
-                    labelText: ["Трудно", "сказать"]
-                }
-            ],
-        });
-        chartData.push({
-            element: '.verticalBar-3', // класс елемента
-            type: 'verticalBar',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#F1CFE3",
-                    progress: "30",
-                    labelText: ["Полный", "восторг"]
-                },
-                {
-                    background: "#E6B8DB",
-                    progress: "45",
-                    labelText: ["Понрави-", "лось"]
-                },
-                {
-                    background: "#D28AC4",
-                    progress: "65",
-                    labelText: ["Чего-то", "не хватило"]
-                },
-                {
-                    background: "#D87BCD",
-                    progress: "80",
-                    labelText: ["Не", "понрави-", "лось"]
-                },
-                {
-                    background: "#E969E4",
-                    progress: "90",
-                    labelText: ["Все", "плохо"]
-                },
-                {
-                    background: "#B74DB2",
-                    progress: "100",
-                    labelText: ["Трудно", "сказать"]
-                }
-            ],
-        });
-        chartData.push({
-            element: '.radialbarmultiple-1', // класс елемента
-            type: 'radialBar2',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#FC9097",
-                    progress: "50",
-                    labelText: "Полный восторг"
-                },
-                {
-                    background: "#FFB43B",
-                    progress: "15",
-                    labelText: "Понравилось"
-                },
-                {
-                    background: "#FFE37B",
-                    progress: "15",
-                    labelText: "Чего-то не хватило"
-                },
-                {
-                    background: "#F7F648",
-                    progress: "15",
-                    labelText: "Не понравилось"
-                },
-                {
-                    background: "#B6E49F",
-                    progress: "15",
-                    labelText: "Все плохо"
-                },
-                {
-                    background: "#3D8164",
-                    progress: "15",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.radialbarmultiple-2', // класс елемента
-            type: 'radialBar2',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#FC9097",
-                    progress: "40",
-                    labelText: "Полный восторг"
-                },
-                {
-                    background: "#FFB43B",
-                    progress: "25",
-                    labelText: "Понравилось"
-                },
-                {
-                    background: "#FFE37B",
-                    progress: "10",
-                    labelText: "Чего-то не хватило"
-                },
-                {
-                    background: "#F7F648",
-                    progress: "13",
-                    labelText: "Не понравилось"
-                },
-                {
-                    background: "#B6E49F",
-                    progress: "20",
-                    labelText: "Все плохо"
-                },
-                {
-                    background: "#3D8164",
-                    progress: "8",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.radialbarmultiple-3', // класс елемента
-            type: 'radialBar2',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#FC9097",
-                    progress: "70",
-                    labelText: "Полный восторг"
-                },
-                {
-                    background: "#FFB43B",
-                    progress: "10",
-                    labelText: "Понравилось"
-                },
-                {
-                    background: "#FFE37B",
-                    progress: "20",
-                    labelText: "Чего-то не хватило"
-                },
-                {
-                    background: "#F7F648",
-                    progress: "40",
-                    labelText: "Не понравилось"
-                },
-                {
-                    background: "#B6E49F",
-                    progress: "70",
-                    labelText: "Все плохо"
-                },
-                {
-                    background: "#3D8164",
-                    progress: "16",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.radialbarmultiple-4', // класс елемента
-            type: 'radialBar2',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#FC9097",
-                    progress: "10",
-                    labelText: "Полный восторг"
-                },
-                {
-                    background: "#FFB43B",
-                    progress: "80",
-                    labelText: "Понравилось"
-                },
-                {
-                    background: "#FFE37B",
-                    progress: "40",
-                    labelText: "Чего-то не хватило"
-                },
-                {
-                    background: "#F7F648",
-                    progress: "30",
-                    labelText: "Не понравилось"
-                },
-                {
-                    background: "#B6E49F",
-                    progress: "20",
-                    labelText: "Все плохо"
-                },
-                {
-                    background: "#3D8164",
-                    progress: "10",
-                    labelText: "Трудно сказать"
-                }
-            ],
-        });
-        chartData.push({
-            element: '.circle-chart-1', // класс елемента
-            type: 'pieSimple',               //тип графіка
-            data: [                          //данные графика    
-                {
-                    background: "#99FFC2",
-                    progress: "100",
-                    labelText: "круто"
-                },
-                {
-                    background: "#C984FF",
-                    progress: "115",
-                    labelText: "понравилось"
-                },
-                {
-                    background: "#E992FF",
-                    progress: "230",
-                    labelText: "нормально"
-                }, 
-                {
-                    background: "#92B7FF",
-                    progress: "280",
-                    labelText: "не очень"
-                }, 
-                {
-                    background: "#A0F9FF",
-                    progress: "50",
-                    labelText: "все плохо"
-                }
-            ]
-        });
-        chartData.push({
-            element: '.circle-chart-2', // класс елемента
-            type: 'pieSimple',               //тип графіка
-            data: [                          //данные графика    
-                {
-                    background: "#ED874D",
-                    progress: "100",
-                    labelText: "Это впервые"
-                },
-                {
-                    background: "#ECC68E",
-                    progress: "115",
-                    labelText: "Время от времени"
-                },
-                {
-                    background: "#ECAF8E",
-                    progress: "230",
-                    labelText: "Я постоянный гость"
-                }
-            ]
-        });
-        chartData.push({
-            element: '.chart-bar-horizontal-1', // класс елемента
-            type: 'horizontalbar',               //тип графіка
-            data: [                          //данные графика   
-                {
-                    background: "#EE8DFF",
-                    progress: "500",
-                    labelText: "Местоположение"
-                },   
-                {
-                    background: "#78F3EF",
-                    progress: "400",
-                    labelText: "Соотношение цена - качество блюд/напитков"
-                },
-                {
-                    background: "#FCF2D2",
-                    progress: "250",
-                    labelText: "Ассортимент блюд и напитков"
-                },
-                {
-                    background: "#AAE9FB",
-                    progress: "300",
-                    labelText: "Скорость работы сотрудников"
-                },
-                {
-                    background: "#FFA2C6",
-                    progress: "200",
-                    labelText: "Внимательность, вежливость и доброжелательность сотрудников"
-                }
-            ]
-        });
-        chartData.push({
-            element: '.gender-chart', // класс елемента
-            type: 'Gender',  
-            data: {
-                female: 80,
-                male: 20
-            }             
-        });
-        chartData.push({
-            element: '.horizantal-2', // класс елемента
-            type: 'HorizontalBarCustom',               //тип графіка
-            background: '#16CEB9',
-            data: [                          //данные графика      
-                {
-                    progress: "10",
-                    labelText: "Студент"
-                },
-                {
-                    progress: "70",
-                    labelText: "Домохозяйка, отпуск по уходу за ребенком"
-                },
-                {
-                    progress: "65",
-                    labelText: "Рабочая специальность"
-                },
-                {
-                    progress: "36",
-                    labelText: "Государственный служащий"
-                },
-                {
-                    progress: "15",
-                    labelText: "Сотрудник частной компании (бизнес)"
-                },
-                {
-                    progress: "25",
-                    labelText: "Менеджер"
-                },
-                {
-                    progress: "16",
-                    labelText: "Пенсионер"
-                }
-            ]
-        });
-        chartData.push({
-            element: '.dougnat-chart', // класс елемента
-            type: 'dougnatSimple',               //тип графіка
-            data: [                          //данные графика      
-                {
-                    background: "#7376FE",
-                    progress: "200",
-                    labelText: "До 23"
-                },
-                {
-                    background: "#AFCBFF",
-                    progress: "320",
-                    labelText: "24 - 35"
-                },
-                {
-                    background: "#64B4FF",
-                    progress: "390",
-                    labelText: "36- 55"
-                },
-                {
-                    background: "#AF9FFF",
-                    progress: "420",
-                    labelText: "Свыше 56"
-                }
-            ]
-        });
-</script>
+                ]
+            });
+    </script>
     <script>
         jQuery(function ($) {
             $(document).ready(function () {

@@ -65,6 +65,9 @@ function DrawCharts(chartData){
             if(chartData[i].type == 'shadowLine'){
                 drawShadowLine(chartData[i].element, chartData[i].data, chartData[i].borderColor);
             }
+            if(chartData[i].type == 'shadowLine2'){
+                drawShadowLine2(chartData[i].element, chartData[i].data, chartData[i].borderColor);
+            }
             if(chartData[i].type == 'lineDot'){
                 drawLineDot(chartData[i].element, chartData[i].data, chartData[i].dotColor);
             }
@@ -84,7 +87,160 @@ function DrawCharts(chartData){
             if(chartData[i].type == 'HorizontalBarCustom'){
                 DrawHorizontalBarCustom(chartData[i].element, chartData[i].data);
             }
+            if(chartData[i].type == 'TimeChart'){
+                DrawTimeChart(chartData[i].element, chartData[i].data);
+            }
+            if(chartData[i].type == 'RatingsChart'){
+                DrawRatingsChart(chartData[i].element, chartData[i].data);
+            }
         }
+    }
+}
+function DrawRatingsChart (element, data){
+    if($(element).length > 0 && data.length > 0){
+        let summary = 0;
+        let maxvalue = 0;
+        for (let i = 0; i < data.length; i++) {
+            summary += parseInt(data[i].progress);
+            if(maxvalue<parseInt(data[i].progress)){
+                maxvalue = parseInt(data[i].progress);
+            }
+        }
+        let maxScale;
+        let stepScale;
+        if(maxvalue <= 0.5) {
+            stepScale = 0.1;
+            maxScale = 0.5;
+        }
+        else if(maxvalue <= 1) {
+            stepScale = 0.2;
+            maxScale = 1;
+        }
+        else if(maxvalue <= 5) {
+            stepScale = 1;
+            maxScale = 5;
+        } 
+        else {
+            let tempScale = Math.round((maxvalue/5)*2)/2;
+            if(tempScale > 2) {
+                tempScale = Math.round(tempScale);
+            }
+            if(tempScale > 2 && tempScale <= 10){
+                tempScale =  Math.ceil(tempScale/5)*5;
+            }
+            if(tempScale > 10 && tempScale < 15){
+                tempScale =  Math.ceil(tempScale/15)*15;
+            }
+            if(tempScale > 10 && tempScale < 50){
+                tempScale =  Math.ceil(tempScale/10)*10;
+            }
+            if(tempScale > 50 && tempScale < 100){
+                tempScale =  Math.ceil(tempScale/50)*50;
+            }
+            stepScale = tempScale;
+        }
+    
+        let chartHtml = '<div class="vertical-ratings-bar-wrapper">';
+        chartHtml += '<div class="scale-wrapper">';
+        let currentScale = 0;
+        while(currentScale <= maxvalue){
+            chartHtml+= '<div class="scale-item">' + currentScale +' шт. </div>';
+            currentScale += stepScale;
+            currentScale =  Math.round(currentScale*10)/10
+        }
+        chartHtml += '</div>';
+        chartHtml += '<div class="item-list">'
+        for (let i = 0; i < data.length; i++) {
+            let percentHeight = parseInt(data[i].progress)*(100/(currentScale));
+            chartHtml += 
+                '<div class="bar-item">'
+                +'    <div class="bar-active" style="height: ' + percentHeight + '%; background: ' + data[i].background +'">'
+                +'  </div>'
+                +'  <div class="label">' + data[i].labelText + '</div>'
+                +'</div>';
+        }
+        chartHtml += '</div>';
+        chartHtml += '</div>';
+        $(chartHtml).appendTo($(element));
+        $(element).find('.scale-item').height();
+        height = $(element).find('.scale-item').height();
+        $('<style>.vertical-ratings-bar-wrapper .scale-wrapper .scale-item::after{margin-top:'+height+'px;}</style>').appendTo('head');
+    }
+}
+function DrawTimeChart (element, data){
+    if($(element).length > 0 && data.length > 0){
+        let summary = 0;
+        let maxvalue = 0;
+        for (let i = 0; i < data.length; i++) {
+            summary += parseInt(data[i].progress);
+            if(maxvalue<parseInt(data[i].progress)){
+                maxvalue = parseInt(data[i].progress);
+            }
+        }
+        let maxScale;
+        let stepScale;
+        if(maxvalue <= 0.5) {
+            stepScale = 0.1;
+            maxScale = 0.5;
+        }
+        else if(maxvalue <= 1) {
+            stepScale = 0.2;
+            maxScale = 1;
+        }
+        else if(maxvalue <= 5) {
+            stepScale = 1;
+            maxScale = 5;
+        } 
+        else {
+            let tempScale = Math.round((maxvalue/5)*2)/2;
+            if(tempScale > 2) {
+                tempScale = Math.round(tempScale);
+            }
+            if(tempScale > 2 && tempScale <= 10){
+                tempScale =  Math.ceil(tempScale/5)*5;
+            }
+            if(tempScale > 10 && tempScale < 15){
+                tempScale =  Math.ceil(tempScale/15)*15;
+            }
+            if(tempScale > 10 && tempScale < 50){
+                tempScale =  Math.ceil(tempScale/10)*10;
+            }
+            if(tempScale > 50 && tempScale < 100){
+                tempScale =  Math.ceil(tempScale/50)*50;
+            }
+            stepScale = tempScale;
+        }
+    
+        let chartHtml = '<div class="vertical-time-bar-wrapper">';
+        chartHtml += '<div class="scale-wrapper">';
+        let currentScale = 0;
+        while(currentScale <= maxvalue){
+            chartHtml+= '<div class="scale-item">' + currentScale +' мин </div>';
+            currentScale += stepScale;
+            currentScale =  Math.round(currentScale*10)/10
+        }
+        chartHtml += '</div>';
+        chartHtml += '<div class="item-list">'
+        for (let i = 0; i < data.length; i++) {
+            let percentHeight = parseInt(data[i].progress)*(100/(currentScale));
+            chartHtml += 
+                '<div class="bar-item">'
+                +'    <div class="bar-active" style="height: ' + percentHeight + '%;">'
+                +'      <div class="bar-hover">'
+                +'          <div class="value">'
+                +'              ' + data[i].progress + ' мин'
+                +'          </div>'
+                +'      </div>'
+                +'  </div>'
+                +'  <div class="label">' + data[i].labelText + '</div>'
+                +'</div>';
+        }
+        chartHtml += '</div>';
+        chartHtml += '</div>';
+        $(chartHtml).appendTo($(element));
+        $(element).find('.scale-item').height();
+        height = $(element).find('.scale-item').height();
+        $('<style>.vertical-time-bar-wrapper .scale-wrapper .scale-item::after{margin-top:'+height+'px;}</style>').appendTo('head');
     }
 }
 function DrawHorizontalBarCustom(element, data){
@@ -259,6 +415,209 @@ function DrawGenderChart(element, female, male) {
         $(chartHtml).appendTo($(element));
     }
 };
+function drawShadowLine2(element, data, borderColor) {
+    //type shadowLine
+    (function()
+    {
+        var ShadowLineElement = Chart.elements.Line.extend({
+            draw: function()
+            {
+                var ctx = this._chart.ctx;
+                var vm = this._view;
+                var borderColor = vm.borderColor;
+                var originalStroke = ctx.stroke;
+                ctx.stroke = function()
+                {
+                    ctx.save();
+                    ctx.shadowColor = borderColor;
+                    ctx.shadowBlur = 4;
+                    ctx.shadowOffsetX = 0;
+                    ctx.shadowOffsetY = 0;
+                    originalStroke.apply(this, arguments);
+                    ctx.restore();
+                };
+                Chart.elements.Line.prototype.draw.apply(this, arguments);
+                ctx.stroke = originalStroke;
+            }
+        });
+        Chart.defaults.ShadowLine = Chart.defaults.line;
+        Chart.controllers.ShadowLine = Chart.controllers.line.extend({
+            datasetElementType: ShadowLineElement
+        });
+    })();
+    if($(element).length==1 && data.length > 0){
+        if(data[0].labelText !== '5') {
+            data.reverse();
+        }
+        var id = element.split('.')[1];
+        var width = 500;
+        var height = 200;
+        if(window.screen.width > 1450 && window.screen.width <= 1600) {
+            width = 600;
+            height = 300;
+        }
+        else if(window.screen.width > 1200 && window.screen.width <= 1450) {
+            width = 600;
+            height = 350;
+        }
+        else if(window.screen.width > 992 && window.screen.width <= 1200) {
+            width = 600;
+            height = 350;
+        }
+        else if(window.screen.width > 768 && window.screen.width <= 992){
+            width = 600;
+            height = 200;
+        }
+        else if(window.screen.width > 500 && window.screen.width <= 768) {
+            width = 750;
+            height = 250;
+        }
+        else if(window.screen.width <= 500) {
+            width = 350;
+            height = 200;
+        }
+        var canvas = '<canvas  id="' + id + '" style="height: '+ height + 'px; width: '+ width +'px;"></canvas>';
+        $(canvas).appendTo($(element));
+        data.reverse();   
+        var newData = new Array(data.length);
+        var backgroundColor = new Array(data.length);
+        var labels = new Array(data.length);
+        var maxValue = data[0].progress;
+        for (let i = 0; i < data.length; i++) {
+            labels[i] = data[i].labelText;
+            backgroundColor[i] = data[i].background;
+            newData[i] = data[i].progress;
+            if(maxValue<data[i].progress){
+                maxValue = data[i].progress;
+            }
+        }
+        maxValue = parseInt(maxValue) + 10;
+        var shadowLineEl = document.getElementById(id).getContext('2d');
+        gradient = shadowLineEl.createLinearGradient(0, 0, 0, height);
+        gradient.addColorStop(0, borderColor);
+        gradient.addColorStop(0.5, borderColor + '55');
+        gradient.addColorStop(0.9, borderColor + '00');
+
+        var ChartData = {
+            labels: labels,
+            datasets: [{
+                data: newData,
+                backgroundColor: gradient,
+                pointBackgroundColor: 'white',
+                borderWidth: 2,
+                borderColor: borderColor,
+            }]
+        };
+
+        var optionsLine = {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutoutPercentage: 70,
+            animation: {
+                easing: 'easeInOutQuad',
+                duration: 520
+            },
+            hover: {mode: null},
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: '#D5D3D3',
+                        lineWidth: 1
+                    },
+                    ticks: {
+                        fontSize: 10,
+                        min: 0
+                    }
+                }],
+                yAxes: [{
+                    barPercentage: 1.0,
+                    weight: 100,
+                    gridLines: {
+                        color: '#D5D3D3',
+                        lineWidth: 1
+                    },
+                    ticks: {
+                        min: 0,
+                        padding: 10,
+                        beginAtZero: true,
+                        fontColor: "#fff",
+                        callback: function(value, index, values) {
+                            return value + ' шт';
+                        }
+                    }
+                }],
+            },
+            elements: {
+                line: {
+                    tension: 0.4,
+                }
+            },
+            legend: {
+                display: false
+            },
+            point: {
+                backgroundColor: 'white'
+            },
+            tooltips: {
+                mode: 'nearest',
+                backgroundColor: borderColor,
+                titleFontSize: 8,
+                titleAlign: 'center',
+                position: 'average',
+                xPadding: 10,
+                yPadding: 5,
+                cornerRadius: 10,
+                displayColors: false,
+                callbacks: {
+                    title: function() {},
+                    label: function(tooltipItem, data) {
+                        var values = data.datasets[tooltipItem.datasetIndex].data;
+                        var total = 0;
+                        for(let i = 0; i < values.length; i++){
+                            total += parseInt(values[i]);
+                        }
+                        var percent;
+                        if(parseInt(data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index])>0){
+                            percent = Math.round((100/total)*data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
+                        }
+                        else {
+                            percent = 0;
+                        }
+                        var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] || '';
+                        label =  percent + '% / '+ label + ' шт';
+                        return label;
+                    }
+                }
+            }
+        };
+        chartInstanceTeam = new Chart(shadowLineEl, {
+            type: 'ShadowLine',
+            data: ChartData,
+            responsive: true,
+            options: optionsLine,
+            plugins: [{
+                afterDraw: function(chartTeam){      
+                var ctx = chartTeam.chart.ctx; 
+                var yAxis = chartTeam.scales['y-axis-0'];
+                for (var index = 0; index < yAxis.ticks.length; index++) {
+                    var y = yAxis.getPixelForTick(index);
+                    if (!window.document.documentMode) {
+                        ctx.fillText(yAxis.ticks[index],  0,  y - 15);
+                        ctx.fillStyle = "#1E1E1E";
+                        ctx.textBaseline = "middle";
+                        ctx.beginPath();
+                        ctx.moveTo(0,  y + 0.5);
+                        ctx.lineTo(yAxis.right,  y + 0.5);
+                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = "#D5D3D3";
+                        ctx.stroke();
+                        }
+                    }
+                }
+            }],
+        });
+    }
+}
 function drawShadowLine(element, data, borderColor) {
     //type shadowLine
     (function()
@@ -448,7 +807,8 @@ function drawShadowLine(element, data, borderColor) {
                     var y = yAxis.getPixelForTick(index);  
                     if (!window.document.documentMode) {
                         ctx.fillText(yAxis.ticks[index],  0,  y - 15);
-                        ctx.fillStyle = "#1E1E1E"
+                        ctx.fillStyle = "#1E1E1E";
+                        ctx.textBaseline = "middle";
                         ctx.beginPath();
                         ctx.moveTo(0,  y + 0.5);
                         ctx.lineTo(yAxis.right,  y + 0.5);
