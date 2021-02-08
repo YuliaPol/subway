@@ -138,15 +138,15 @@ RadialBar.prototype = {
         var self = this;
         var radius = r - 10;
         var circumference = radius * 2 * Math.PI;
-        // var offset = circumference - object.progress / 100 * circumference;
-        var offset = circumference - percent / 100 * circumference;
-        // var offset;
-        // if(parseInt(object.progress) > 0){
-        //     offset = circumference - object.progress / maxValue * 0.9 * circumference;
-        // }
-        // else {
-        //     offset = 0;
-        // }
+        var offset = circumference - object.progress / 100 * circumference;
+        // var offset = circumference - percent / 100 * circumference;
+        var offset;
+        if(parseInt(object.progress) > 0){
+            offset = circumference - object.progress / maxValue * 0.9 * circumference;
+        }
+        else {
+            offset = 0;
+        }
         var circle = document.createElementNS(svgNS,"circle");
         circle.setAttribute("cy", 0);
         circle.setAttribute("cx", 0);
