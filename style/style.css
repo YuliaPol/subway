@@ -60,7 +60,7 @@ body {
 
 .container .header {
   margin-left: 260px;
-  background-color: #374448;
+  background-color: #a81c1d;
   height: 70px;
   width: calc(100% - 260px);
   display: -webkit-box;
@@ -303,6 +303,31 @@ body {
   width: 100%;
 }
 
+.container .sidebar .menu .sidebar-nav.treeview-menu a {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #374448;
+  padding-left: 50px;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  text-decoration: none;
+  outline: none;
+  border-right: 4px solid transparent;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active a {
+  background: -webkit-gradient(linear, right top, left top, from(rgba(215, 177, 34, 0.19)), color-stop(0%, rgba(215, 177, 34, 0.39)), color-stop(99.48%, rgba(215, 177, 34, 0)), to(rgba(215, 177, 34, 0)));
+  background: -webkit-linear-gradient(right, rgba(215, 177, 34, 0.19) 0%, rgba(215, 177, 34, 0.39) 0%, rgba(215, 177, 34, 0) 99.48%, rgba(215, 177, 34, 0) 100%);
+  background: -o-linear-gradient(right, rgba(215, 177, 34, 0.19) 0%, rgba(215, 177, 34, 0.39) 0%, rgba(215, 177, 34, 0) 99.48%, rgba(215, 177, 34, 0) 100%);
+  background: linear-gradient(270deg, rgba(215, 177, 34, 0.19) 0%, rgba(215, 177, 34, 0.39) 0%, rgba(215, 177, 34, 0) 99.48%, rgba(215, 177, 34, 0) 100%);
+  border-right-color: #D7B122;
+}
+
 .container .sidebar .menu .sidebar-nav li {
   width: 100%;
   padding: 0px;
@@ -427,7 +452,7 @@ body {
   padding: 10px 15px;
   display: inline-block;
   margin-right: 10px;
-  background: #374448;
+  background: #a81c1d;
   border-radius: 3px;
   color: #ffffff;
   font-family: Helvetica;
@@ -439,6 +464,56 @@ body {
   outline: none;
   border: none;
   margin-bottom: 5px;
+}
+
+.container .breadcrumps {
+  padding-top: 22px;
+  padding-bottom: 17px;
+  padding-left: 35px;
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.container .breadcrumps ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.container .breadcrumps ul li {
+  display: block;
+  padding-right: 5px;
+  margin: 0px;
+  color: #505050;
+  font-size: 14px;
+}
+
+.container .breadcrumps ul li a {
+  color: #505050;
+  font-size: 14px;
+  text-decoration: none;
+  outline: none;
+}
+
+.container .breadcrumps ul li span.home {
+  padding-left: 30px;
+  position: relative;
+}
+
+.container .breadcrumps ul li span.home::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  width: 14px;
+  height: 12px;
+  background-image: url(../img/home.png);
+  -webkit-background-size: 100% 100%;
+          background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .page-content {
@@ -468,6 +543,7 @@ body {
   padding-bottom: 20px;
   padding-left: 25px;
   padding-right: 25px;
+  border-bottom: 1px solid #BEBEBE;
 }
 
 .page-content .filter-wrapper .box {
@@ -698,6 +774,11 @@ body {
           justify-content: space-between;
 }
 
+.page-content .charts-wrapper .chart-box .chart-box-conntent.br-rd-none {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
 .page-content .charts-wrapper .chart-box .chart-box-conntent .chart-header {
   font-family: Helvetica;
   font-style: normal;
@@ -711,6 +792,131 @@ body {
 
 .page-content .charts-wrapper .chart-box .chart-box-conntent .nps-header {
   font-weight: bold;
+}
+
+.page-content .charts-wrapper .table-top {
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.page-content .charts-wrapper .table-top.table-green th {
+  background: #00DAAA;
+}
+
+.page-content .charts-wrapper .table-top.table-green td {
+  background: #D4F9EF;
+}
+
+.page-content .charts-wrapper .table-top.table-red th {
+  background: #FF726A;
+}
+
+.page-content .charts-wrapper .table-top.table-red td {
+  background: #FFD4D6;
+}
+
+.page-content .charts-wrapper .table-top table {
+  width: 100%;
+}
+
+.page-content .charts-wrapper .table-top table th:first-child,
+.page-content .charts-wrapper .table-top table td:first-child {
+  width: 65%;
+}
+
+.page-content .charts-wrapper .table-top table td:nth-child(2), .page-content .charts-wrapper .table-top table th:nth-child(2) {
+  width: 35%;
+}
+
+.page-content .charts-wrapper .table-top table thead th {
+  padding: 15px 28px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.page-content .charts-wrapper .table-top table thead th:first-child {
+  border-right: 2px solid #ffffff;
+  border-top-left-radius: 10px;
+}
+
+.page-content .charts-wrapper .table-top table thead th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.page-content .charts-wrapper .table-top table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.page-content .charts-wrapper .table-top table tbody td {
+  padding: 10px 28px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #373030;
+  border-bottom: 1px solid #ffffff;
+}
+
+.page-content .charts-wrapper .table-top table tbody td:first-child {
+  border-right: 2px solid #ffffff;
+}
+
+.page-content .charts-wrapper .table-top table tbody td:last-child {
+  text-align: center;
+}
+
+.page-content .charts-wrapper .table-reason {
+  padding: 10px 20px 0px;
+}
+
+.page-content .charts-wrapper .table-reason table {
+  width: 100%;
+}
+
+.page-content .charts-wrapper .table-reason table th:first-child,
+.page-content .charts-wrapper .table-reason table td:first-child {
+  width: 75%;
+}
+
+.page-content .charts-wrapper .table-reason table th:nth-child(2),
+.page-content .charts-wrapper .table-reason table td:nth-child(2) {
+  width: 25%;
+  text-align: center;
+}
+
+.page-content .charts-wrapper .table-reason table thead th {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  color: #1B1717;
+  text-align: left;
+  border-bottom: 1px solid #898484;
+  padding: 10px 5px 10px;
+}
+
+.page-content .charts-wrapper .table-reason table tbody tr:nth-child(even) {
+  background: #F2F2F2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.page-content .charts-wrapper .table-reason table tbody td {
+  padding: 10px 5px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #373030;
 }
 
 .page-content .btn-default {
@@ -1438,6 +1644,38 @@ body {
 
 .blocks-list .block-wrapper .block-item .icon-col .icon.icon-checkmark {
   background: url(./../img/icon-checkmark.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.blocks-list .block-wrapper .block-item .icon-col .icon.icon-allnotifications {
+  background: url(./../img/icon-all-notifications.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.blocks-list .block-wrapper .block-item .icon-col .icon.icon-negnotifications {
+  background: url(./../img/icon-neg-notifications.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.blocks-list .block-wrapper .block-item .icon-col .icon.icon-neutralnotifications {
+  background: url(./../img/icon-neutral-notifications.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.blocks-list .block-wrapper .block-item .icon-col .icon.icon-posnotifiactions {
+  background: url(./../img/icon-positive-notifications.svg);
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: contain;
@@ -2603,7 +2841,7 @@ body {
 }
 
 .daterangepicker .drp-buttons .btn {
-  background-color: #374448;
+  background-color: #a81c1d;
   color: #ffffff;
   border: none;
   outline: none;
@@ -2616,7 +2854,7 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #374448;
+  background: #a81c1d;
   width: 50px;
   height: 50px;
   line-height: 50px;

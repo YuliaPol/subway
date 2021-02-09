@@ -17,7 +17,7 @@ $( window ).resize(function() {
 });
 function DrawCharts(chartData){
     for(let i = 0; i < chartData.length; i++){
-        if(chartData[i].element && chartData[i].data){
+        if(chartData[i].element){
             if(chartData[i].type == 'radialbar'){
                 var Radialdata = new Array(chartData[i].data.length);
                 for (let index = 0; index < chartData[i].data.length; index++) {
@@ -67,6 +67,9 @@ function DrawCharts(chartData){
             }
             if(chartData[i].type == 'shadowLine2'){
                 drawShadowLine2(chartData[i].element, chartData[i].data, chartData[i].borderColor);
+            }
+            if(chartData[i].type == 'shadowLineMultiple'){
+                drawShadowLineMultiple(chartData[i].element, chartData[i].labels, chartData[i].datasets);
             }
             if(chartData[i].type == 'lineDot'){
                 drawLineDot(chartData[i].element, chartData[i].data, chartData[i].dotColor);
@@ -415,6 +418,128 @@ function DrawGenderChart(element, female, male) {
         $(chartHtml).appendTo($(element));
     }
 };
+function drawShadowLineMultiple(element, labels,  data){
+    if($(element).length==1 && data.length > 0){
+        if(data[0].labelText !== '5') {
+            data.reverse();
+        }
+        var id = element.split('.')[1];
+        var width = 1000;
+        var height = 300;
+        if(window.screen.width > 1450 && window.screen.width <= 1600) {
+            width = 1000;
+            height = 350;
+        }
+        else if(window.screen.width > 1200 && window.screen.width <= 1450) {
+            width = 1000;
+            height = 350;
+        }
+        else if(window.screen.width > 992 && window.screen.width <= 1200) {
+            width = 1000;
+            height = 350;
+        }
+        else if(window.screen.width > 768 && window.screen.width <= 992){
+            width = 1000;
+            height = 400;
+        }
+        else if(window.screen.width > 500 && window.screen.width <= 768) {
+            width = 750;
+            height = 250;
+        }
+        else if(window.screen.width <= 500) {
+            width = 350;
+            height = 200;
+        }
+        var canvas = '<canvas  id="' + id + '" style="height: '+ height + 'px; width: '+ width +'px;"></canvas>';
+        $(canvas).appendTo($(element));
+        var newData = new Array(data.length);
+        var backgroundColor = new Array(data.length);
+        var maxValue = data[0].progress;
+        var shadowLineEl = document.getElementById(id).getContext('2d');
+        var datasets = new Array(0);
+        for (let index = 0; index < data.length; index++) {
+            var dataTemp = new Array(data[index].data.length);
+            for (let index2 = 0; index2 < data[index].data.length; index2++) {
+                dataTemp[index2] = data[index].data[index2];
+            }
+
+            var gradient = shadowLineEl.createLinearGradient(0, 0, 0, height + 200);
+            gradient.addColorStop(0, data[index].backgroundFrom);
+            gradient.addColorStop(0.1, data[index].backgroundFrom);
+            gradient.addColorStop(0.9, data[index].backgroundTo);
+            gradient.addColorStop(1, data[index].backgroundTo);
+            console.log(gradient);
+            var datasetsTemp = {
+                backgroundColor: gradient,
+                data: dataTemp,
+                borderColor: data[index].borderColor,
+                label: "label"
+            }
+            console.log(datasetsTemp);
+            datasets.push(datasetsTemp);
+        }
+        var ChartData = {
+            labels: labels,
+            datasets: datasets
+
+        };
+
+        var optionsLine = {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutoutPercentage: 70,
+            animation: {
+                easing: 'easeInOutQuad',
+                duration: 520
+            },
+            hover: {mode: null},
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: '#D5D3D3',
+                        lineWidth: 1
+                    },
+                    ticks: {
+                        fontSize: 10,
+                        min: 0
+                    }
+                }],
+                yAxes: [{
+                    barPercentage: 1.0,
+                    weight: 100,
+                    gridLines: {
+                        color: '#D5D3D3',
+                        lineWidth: 1
+                    },
+                    ticks: {
+                        min: 0,
+                        padding: 10,
+                        beginAtZero: true,
+                    }
+                }],
+            },
+            tooltips: {
+                enabled: false,
+            },
+            elements: {
+                line: {
+                    tension: 0.4,
+                }
+            },
+            legend: {
+                display: false
+            },
+        };
+        console.log(labels);
+        console.log(datasets);
+        chartInstanceTeam = new Chart(shadowLineEl, {
+            type: 'line',
+			data: ChartData,
+            responsive: true,
+            options: optionsLine,
+        });
+    }
+}
 function drawShadowLine2(element, data, borderColor) {
     //type shadowLine
     (function()

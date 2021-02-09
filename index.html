@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coffemania</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./style/daterangepicker.css">
+    <link rel="stylesheet" href="./style/daterangepicker-kv.css">
     <link rel="stylesheet" href="./style/style.css">
 
+
     <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/moment.js"></script>
+    <script src="./js/daterangepicker.js"></script>
     <script src="./js/script.js"></script>
 </head>
 <body>
@@ -42,19 +47,12 @@
                 </div>
                 <div class="menu">
                     <nav>
-                        <ul class="sidebar-nav">
-                            <li class="treeview">
-                                <a class="show-treeview-menu" href="#">
-                                    <span>javascript:void(0);</span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li class="active">
-                                        <a href="#">Связь с менеджером</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Чат-бот</a>
-                                    </li>
-                                </ul>
+                        <ul class="sidebar-nav treeview-menu">
+                            <li class="active">
+                                <a href="#">Ключевые показатели</a>
+                            </li>
+                            <li>
+                                <a href="#">Сводная информация</a>
                             </li>
                         </ul>
                     </nav>
@@ -62,14 +60,376 @@
             </div>
         </div>
         <div class="content">
-            <div class="header-page">
-                <h1>
-                    Связь с менеджером
-                </h1>
+            <div class="breadcrumps">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i> Главная</a> /
+                    </li>
+                    <li>
+                        <span>
+                            Ключевые показатели
+                        </span>
+                    </li>
+                </ul>
             </div>
             <div class="page-content">
+                <div class="filter-wrapper">
+                    <div class="box">
+                        <h6>Макрорегион </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Макрорегион 1</option>
+                                <option value="2">Макрорегион 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Териториальная единица </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Териториальная единица 1</option>
+                                <option value="2">Териториальная единица 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Город </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Город 1</option>
+                                <option value="2">Город 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Ресторан </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Ресторан 1</option>
+                                <option value="2">Ресторан 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Источник </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Источник 1</option>
+                                <option value="2">Источник 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Тональность </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Тональность 1</option>
+                                <option value="2">Тональность 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Период</h6>
+                        <div class="drp-container-selectdata form-group field-filter-date">
+                            <input type="text" id="filter-date" class="form-control" value="">
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="visibility: hidden">Подобрать</button>
+                    </div>
+                </div>
+                <div class="charts-wrapper">
+                    <div class="blocks-list">
+                        <div class="block-wrapper">
+                            <div class="block-item block-blue">
+                                <div class="icon-col">
+                                    <div class="icon icon-allnotifications"></div>
+                                </div>
+                                <div class="info-col">
+                                    <div class="label">Всего упоминаний</div>
+                                    <div class="value">234</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-wrapper">
+                            <div class="block-item block-red">
+                                <div class="icon-col">
+                                    <div class="icon icon-negnotifications"></div>
+                                </div>
+                                <div class="info-col">
+                                    <div class="label">Негативных упоминаний</div>
+                                    <div class="value">12</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-wrapper">
+                            <div class="block-item block-orange">
+                                <div class="icon-col">
+                                    <div class="icon icon-neutralnotifications"></div>
+                                </div>
+                                <div class="info-col">
+                                    <div class="label">Нейтральных упоминаний</div>
+                                    <div class="value">15</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-wrapper">
+                            <div class="block-item block-green">
+                                <div class="icon-col">
+                                    <div class="icon icon-posnotifiactions"></div>
+                                </div>
+                                <div class="info-col">
+                                    <div class="label">Позитивных упоминаний</div>
+                                    <div class="value">260</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-full-width">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-content">
+                                    <div class="vertical-bar-wrapper">
+                                        <div class="users-summary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-50">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent br-rd-none">
+                                <div class="table-top table-green">
+                                    <div class="table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Топ лучших
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Тема 1</td>
+                                                    <td>24</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 2</td>
+                                                    <td>56</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 3</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 4</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 5</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="table-reason">
+                                    <div class="table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Причины</th>
+                                                    <th>%</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Скорость обслужиывания</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Вежливость</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Компетентность сотрудников</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Желание помочь</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Иное</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-50">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent br-rd-none">
+                                <div class="table-top table-red">
+                                    <div class="table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Топ лучших
+                                                    </th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Тема 1</td>
+                                                    <td>24</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 2</td>
+                                                    <td>56</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 3</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 4</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Тема 5</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="table-reason">
+                                    <div class="table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Причины</th>
+                                                    <th>%</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Скорость обслужиывания</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Вежливость</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Компетентность сотрудников</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Желание помочь</td>
+                                                    <td>12</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Иное</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="./js/Chart.min.js"></script>
+    <script>
+         var chartData = new Array();
+            chartData.push({
+                element: '.users-summary', // класс елемента
+                type: 'shadowLineMultiple',               //тип графіка
+                labels: ['01.01', '02.01', '03.01', '04.01', '05.01' ],
+                datasets: [                          //данные графика  
+                    {
+                    borderColor: '#FE9844',
+                    backgroundFrom: 'rgba(244, 137, 48, 0.5)',
+                    backgroundTo: 'rgba(252, 207, 170, 0.095)',
+                    data: [ 10, 75, 20, 10, 50]
+                    },
+                    {
+                    borderColor: '#EA5151',
+                    backgroundFrom: 'rgba(253, 124, 124, 0.5)',
+                    backgroundTo: 'rgba(255, 206, 206, 0.5)',
+                    data: [ 5, 20, 60, 5, 10]
+                    },
+                    {
+                    borderColor: '#1FAE68',
+                    backgroundFrom: 'rgba(112, 209, 123, 0.5)',
+                    backgroundTo: ' rgba(178, 221, 106, 0.05)',
+                    data: [ 50, 10, 15, 40, 10]
+                    }
+                ]
+            });
+
+    </script>
+    <script>
+        jQuery(function ($) {
+            $(document).ready(function () {
+                $('.field-filter-date input').daterangepicker({
+                    opens: 'rigth',
+                    locale: {
+                        format: 'DD-MM-YYYY',
+                        applyLabel: 'Принять',
+                        cancelLabel: 'Отмена',
+                        invalidDateLabel: 'Выберите дату',
+                        daysOfWeek: ['Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс', 'Пн'],
+                        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                        firstDay: 1
+                    }
+                }, function (start, end, label) {
+                });
+            });
+        });
+    </script>
+    <script src="./js/charts.js"></script>
 </body>
 </html>
