@@ -430,9 +430,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="value-list">
-                                                    <div class="value">120</div>
-                                                    <div class="value">60</div>
-                                                    <div class="value">0</div>
+                                                    <div class="value">12</div>
+                                                    <div class="value">4</div>
+                                                    <div class="value">25</div>
                                                 </div>
                                             </div>
                                             <div class="nsr-left-col">
@@ -449,7 +449,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="value-list">
-                                                    <div class="value">120</div>
+                                                    <div class="value">56</div>
                                                 </div>
                                             </div>
                                             <div class="nsr-left-col">
@@ -466,7 +466,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="value-list">
-                                                    <div class="value">0</div>
+                                                    <div class="value">78</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -517,11 +517,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="flex-50">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header bold">
+                                    Статистика работы с отзывами
+                                </div>
+                                <div class="chart-content">
+                                    <div class="chart-pd-20">
+                                        <div class="alert-chart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header bold">
+                                    Источник публикаций
+                                </div>
+                                <div class="chart-content">
+                                    <div class="pieSimple-flex">
+                                        <div class="pieSimple-chart">
+                                            <div class="chart-source-publication"></div>
+                                        </div>
+                                        <div class="pieSimple-legend chart-legend">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="./js/Chart.min.js"></script>
+    <script src="./js/jquery.drawPieChart.js"></script>
     <script>
          var chartData = new Array();
             chartData.push({
@@ -614,6 +645,87 @@
                     {
                         name: "приложение ",
                         data: [200, 140, 45] //[Позитив, Нейтрал, Негатив ]
+                    }
+                ]
+            });
+            chartData.push({
+                element: '.alert-chart', // класс елемента
+                type: 'alertCharts',               //тип графіка
+                labels: [
+                    "Всего",
+                    "Новые",
+                    "В работе",
+                    "Закрытые",
+                    "Просрочено"
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                data: [
+                    3,
+                    2,
+                    4,
+                    7.5,
+                    6.5
+                ]
+        });
+
+            chartData.push({
+                element: '.chart-source-publication', // класс елемента
+                type: 'pieSimple',               //тип графіка
+                data: [                          //данные графика    
+                    {
+                        background: "#85D2F0",
+                        progress: "100",
+                        labelText: "Одноклассники"
+                    },
+                    {
+                        background: "#EE8E7B",
+                        progress: "115",
+                        labelText: "Instagram"
+                    },
+                    {
+                        background: "#FF8D8E",
+                        progress: "230",
+                        labelText: "Facebook"
+                    },
+                    {
+                        background: "#FEC03D",
+                        progress: "280",
+                        labelText: "Ютуб"
+                    },
+                    {
+                        background: "#FFE700",
+                        progress: "50",
+                        labelText: "Google maps"
+                    },
+                    {
+                        background: "#7AA0D7",
+                        progress: "50",
+                        labelText: "Yandex maps"
+                    },
+                    {
+                        background: "#82F886",
+                        progress: "80",
+                        labelText: "Официальный сайт"
+                    },
+                    {
+                        background: "#C6B7E8",
+                        progress: "250",
+                        labelText: "моб. приложение"
                     }
                 ]
             });

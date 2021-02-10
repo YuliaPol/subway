@@ -56,6 +56,9 @@ function DrawCharts(chartData){
             if(chartData[i].type == 'pieSimple'){
                 drawPieSimple(chartData[i].element, chartData[i].data);
             }
+            if(chartData[i].type == 'pieSimpleDiferentRadius'){
+                drawPieSimpleDiferentRadius(chartData[i].element, chartData[i].data);
+            }
             if(chartData[i].type == 'pieRound'){
                 drawPieRound(chartData[i].element, chartData[i].data);
             }
@@ -101,6 +104,9 @@ function DrawCharts(chartData){
             }
             if(chartData[i].type == 'sourceChart'){
                 DrawSourceChart(chartData[i].element, chartData[i].labels, chartData[i].datasets);
+            }
+            if(chartData[i].type == 'alertCharts'){
+                drawAlertBar(chartData[i].element, chartData[i].labels, chartData[i].backgroundColor, chartData[i].borderColor, chartData[i].data);
             }
         }
     }
@@ -1174,6 +1180,31 @@ function drawPieSimple(element, data){
         if(newData) {
             if(total > 0) {
                 $(element).drawPieChart(newData);
+                drawPieSimpleLegend2(element, data);
+            }
+        }
+    }
+}
+function drawPieSimpleDiferentRadius(element, data){
+    if($(element).length==1 && data.length > 0){
+        var newData = new Array();
+        var total = 0;
+        for (let i = 0; i < data.length; i++) {
+            var temp = {
+                title: data[i].labelText,
+                color: data[i].background,
+                value: parseInt(data[i].progress)
+            }
+            total = total + parseInt(data[i].progress);
+            newData.push(temp);
+        }
+        if(newData[0].title !== '5') {
+            newData.reverse();
+        }
+        if(newData) {
+            if(total > 0) {
+                $(element).addClass('different-radius');
+                $(element).drawPieChart(newData);
                 drawPieSimpleLegend(element, data);
             }
         }
@@ -1195,6 +1226,21 @@ function drawPieSimpleLegend(element, data){
             +'      ' + data[index].labelText
             +'  </div>'
             +'</div>';
+        }
+        legendHtml += '</div>';
+        $(legendHtml).appendTo(legend);
+    }
+}
+function drawPieSimpleLegend2(element, data){
+    let legend = $(element).parents('.pieSimple-flex').find('.pieSimple-legend');
+    if(legend.length > 0){
+        let legendHtml = '<div class="legend-list">';
+        for (let index = 0; index < data.length; index++) {
+            legendHtml += 
+                '<div class="legend-item">'
+                +'    <div class="square" style="background: ' + data[index].background + '"></div>'
+                +'  <div class="label">' +  data[index].labelText + '</div>'
+                +'</div>';
         }
         legendHtml += '</div>';
         $(legendHtml).appendTo(legend);
@@ -1522,6 +1568,80 @@ function drawVerticalBar(element, data) {
                         }
                     }],
                 },
+            }
+        });
+    }
+}
+function drawAlertBar(element, labels, backgroundColor, borderColor, data) {
+    if($(element).length==1 && data.length > 0){
+        var id = element.split('.')[1];
+        var width = 600;
+        var height = 200;
+        if(window.screen.width > 1300 && window.screen.width < 1600){
+            var width = 600;
+            var height = 250;
+        }
+        if(window.screen.width > 992 && window.screen.width < 1300){
+            var width = 600;
+            var height = 300;
+        }
+        if(window.screen.width > 768 && window.screen.width < 992){
+            width = 500;
+            height = 200;
+        }
+        else if(window.screen.width > 500 && window.screen.width <= 768) {
+            width = 750;
+            height = 250;
+        }
+        else if(window.screen.width <= 500) {
+            width = 350;
+            height = 200;
+        }
+        var canvas = '<canvas  id="' + id + '" style="height: '+ height + 'px; width: '+ width +'px;"></canvas>';
+        $(canvas).appendTo($(element));
+        var ChartData = {
+            labels: labels,
+            datasets: [{
+                label: ' ',
+                data: data,
+                backgroundColor: backgroundColor,
+                borderColor: borderColor,
+                borderWidth: 1
+            }],
+        };
+
+        var vertical = document.getElementById(id).getContext('2d');
+        var myBarChart = new Chart(vertical, {
+            type: 'horizontalBar',
+            data: ChartData,
+            options: {
+                legend: {
+                    display: false,
+                },
+                layout: {
+                    padding: {
+                        left: 70,//for text-align
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontSize: 10,
+                            mirror: true,//for text-align
+                            padding: 70//for text-align
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            min: 0,
+                            
+                        }
+                    }]
+                },
+                tooltips: {
+                    enabled: false,
+                }
             }
         });
     }

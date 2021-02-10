@@ -25,7 +25,7 @@
         segmentStrokeWidth : 0,
         baseColor: "#fff",
         baseOffset: 13,
-        edgeOffset: 20,//offset from edge of $this
+        edgeOffset: 30,//offset from edge of $this
         pieSegmentGroupClass: "pieSegmentGroup",
         pieSegmentClass: "pieSegment",
         lightPiesOffset: 12,//lighten pie's width
@@ -69,6 +69,8 @@
         $lightPies = [],
         $shadowPies = [],        
         $percents = [],        
+        $texts = [],
+        $groupsTexts = [],
         easingFunction = animationOptions[settings.animationEasing],
         pieRadius = Min([H/2,W/2]) - settings.edgeOffset,
         segmentTotal = 0,
@@ -90,10 +92,16 @@
     var $pathGroup = $(pathGroup).appendTo($wrapper);
     $pathGroup[0].setAttribute("opacity",0);
 
+    //Set up pie segments wrapper
+    var pathGroupText = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    pathGroupText.setAttribute("class", 'groupTextSegment');
+    var $pathGroupText = $(pathGroupText).appendTo($wrapper);
+
     //Set up tooltip
     var $tip = $('<div class="' + settings.tipClass + '" />').appendTo('body').hide(),
       tipW = $tip.width(),
       tipH = $tip.height();
+
       var shadow = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
       shadow.setAttribute('id', 'boxshadow');
       shadow.setAttribute('x', '-40%');
@@ -150,6 +158,8 @@
       $(feColorMatrix).appendTo(rounded);
       $(rounded).appendTo($wrapper);
 
+
+
     for (var i = 0, len = data.length; i < len; i++){
       segmentTotal += parseInt(data[i].value);
       var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -159,6 +169,7 @@
       g2.setAttribute("data-order", i);
       g2.setAttribute("class", 'textSegment');
       $groups[i] = $(g).appendTo($pathGroup);
+      $groupsTexts[i] = $(g2).appendTo($pathGroupText);
       $groups[i]
         .on("mouseenter", pathMouseEnter)
         .on("mouseleave", pathMouseLeave)
@@ -168,34 +179,96 @@
       var p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       var lp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       var shadowp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      if($this.hasClass('rounded')){
+        if( parseInt(data[i].value)>0) {
+          settings.segmentStrokeWidth = 0;
+        }
+        else {
+          settings.segmentStrokeWidth = 0;
+        }
 
-      settings.segmentStrokeWidth = 0;
-      p.setAttribute("data-value", data[i].value);
-      p.setAttribute("stroke-width", settings.segmentStrokeWidth);
-      p.setAttribute("stroke", settings.segmentStrokeColor);
-      p.setAttribute("stroke-miterlimit", 2);
-      p.setAttribute("fill", data[i].color);
-      p.setAttribute("class", settings.pieSegmentClass);
-      $pies[i] = $(p).appendTo($groups[i]);
 
-      lp.setAttribute("stroke-width", settings.segmentStrokeWidth);
-      lp.setAttribute("stroke", settings.segmentStrokeColor);
-      lp.setAttribute("stroke-miterlimit", 0);
-      lp.setAttribute("fill", data[i].color);
-      lp.setAttribute("opacity", settings.lightPiesOpacity);
-      lp.setAttribute("class", settings.lightPieClass);
-      $lightPies[i] = $(lp).appendTo($groups[i]);
+        p.setAttribute("data-value", data[i].value);
+        if( parseInt(data[i].value)>0) {
+          p.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        }
+        else {
+          p.setAttribute("stroke-width", '0');
+        }
+        p.setAttribute("stroke", data[i].color);
+        p.setAttribute("stroke-miterlimit", 2);
+        p.setAttribute("fill", data[i].color);
+        p.setAttribute("class", settings.pieSegmentClass);
+        $pies[i] = $(p).appendTo($groups[i]);
 
-      shadowp.setAttribute("stroke-width", settings.segmentStrokeWidth);
-      shadowp.setAttribute("stroke", settings.segmentStrokeColor);
-      shadowp.setAttribute("stroke-miterlimit", 0);
-      shadowp.setAttribute("fill", data[i].color);
-      shadowp.setAttribute("opacity", settings.lightPiesOpacity);
-      shadowp.setAttribute("class", "shadowPie");
-      $shadowPies[i] = $(shadowp).appendTo($groups[i]);
+        if( parseInt(data[i].value)>0) {
+          lp.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        }
+        else {
+          lp.setAttribute("stroke-width", '0');
+        }
 
+        lp.setAttribute("stroke", data[i].color);
+        lp.setAttribute("stroke-miterlimit", 0);
+        lp.setAttribute("fill", data[i].color);
+        lp.setAttribute("opacity", settings.lightPiesOpacity);
+        lp.setAttribute("class", settings.lightPieClass);
+
+        $lightPies[i] = $(lp).appendTo($groups[i]);
+
+
+        shadowp.setAttribute("stroke", data[i].color);
+        shadowp.setAttribute("stroke-miterlimit", 0);
+        shadowp.setAttribute("fill", data[i].color);
+        shadowp.setAttribute("opacity", settings.lightPiesOpacity);
+        shadowp.setAttribute("class", "shadowPie");
+        if(parseInt(data[i].value)>0) {
+          shadowp.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        }
+        else {
+          shadowp.setAttribute("stroke-width", '0');
+        }
+
+        $shadowPies[i] = $(shadowp).appendTo($groups[i]);
+      }
+      else{
+        settings.segmentStrokeWidth = 0;
+        p.setAttribute("data-value", data[i].value);
+        p.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        p.setAttribute("stroke", settings.segmentStrokeColor);
+        p.setAttribute("stroke-miterlimit", 2);
+        p.setAttribute("fill", data[i].color);
+        p.setAttribute("class", settings.pieSegmentClass);
+        $pies[i] = $(p).appendTo($groups[i]);
+  
+        lp.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        lp.setAttribute("stroke", settings.segmentStrokeColor);
+        lp.setAttribute("stroke-miterlimit", 0);
+        lp.setAttribute("fill", data[i].color);
+        lp.setAttribute("opacity", settings.lightPiesOpacity);
+        lp.setAttribute("class", settings.lightPieClass);
+        $lightPies[i] = $(lp).appendTo($groups[i]);
+  
+  
+        shadowp.setAttribute("stroke-width", settings.segmentStrokeWidth);
+        shadowp.setAttribute("stroke", settings.segmentStrokeColor);
+        shadowp.setAttribute("stroke-miterlimit", 0);
+        shadowp.setAttribute("fill", data[i].color);
+        shadowp.setAttribute("opacity", settings.lightPiesOpacity);
+        shadowp.setAttribute("class", "shadowPie");
+        $shadowPies[i] = $(shadowp).appendTo($groups[i]);
+
+        
+      }
+      var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('width', 50);
+      text.setAttribute('class', 'percent-text');
+      text.setAttribute('text-anchor', 'middle');
+      text.style.fill = 'white';
+      text.style.fontFamily = 'Arial';
+      text.style.fontSize = '14';
+      $texts[i] = $(text).appendTo($groupsTexts[i]);
     }
-    
     for (var i = 0, len = data.length; i < len; i++){
       $percents[i] = Math.round(data[i].value*(100/segmentTotal));
     }
@@ -204,21 +277,33 @@
 
     function pathMouseEnter(e){
       var index = $(this).data().order;
-      let tipText = 
-      '<div class="tip-cont">'
-      +'    <div class="label">'+ data[index].title +'</div>'
-      +'    <div class="value">' + $percents[index] +'% / ' + data[index].value +'шт</div>'
-      +'</div>';
-      $tip.html(tipText);
-      $tip.show();
-      if ($groups[index][0].getAttribute("data-active") !== "active"){
-        $lightPies[index].animate({opacity: 1}, 180);
-        $shadowPies[index].animate({opacity: 1}, 180);
+      if($($this).hasClass('different-radius')){
+        let tipText = 
+        '<div class="tip-cont">'
+        +'    <div class="label">'+ data[index].title +'</div>'
+        +'    <div class="value">' + $percents[index] +'% / ' + data[index].value +'шт</div>'
+        +'</div>';
+        $tip.html(tipText);
+        $tip.show();
+        if ($groups[index][0].getAttribute("data-active") !== "active"){
+          $lightPies[index].animate({opacity: 1}, 180);
+          $shadowPies[index].animate({opacity: 1}, 180);
+        }
+        settings.onPieMouseenter.apply($(this),[e,data]);
       }
-      settings.onPieMouseenter.apply($(this),[e,data]);
+      else {
+        $('.groupTextSegment .textSegment[data-order='+ index + ']').find('.percent-text').addClass('show');
+        // $tip.text(data[index].value + "шт").fadeIn(200);
+        if ($groups[index][0].getAttribute("data-active") !== "active"){
+          $lightPies[index].animate({opacity: 1}, 180);
+          $shadowPies[index].animate({opacity: 1}, 180);
+        }
+        settings.onPieMouseenter.apply($(this),[e,data]);
+      }
     }
     function pathMouseLeave(e){
       var index = $(this).data().order;
+      $('.groupTextSegment .textSegment[data-order='+ index + ']').find('.percent-text').removeClass('show');
       $tip.hide();
       if ($groups[index][0].getAttribute("data-active") !== "active"){
         $lightPies[index].animate({opacity: settings.lightPiesOpacity}, 100);
@@ -232,6 +317,28 @@
         left: e.pageX - $tip.width() / 2 + settings.tipOffsetX
       });
     }
+    function pathClick(e){
+      var index = $(this).data().order;
+      if (typeof data[index].action != "undefined") 
+          data[index].action();
+      var targetGroup = $groups[index][0];
+      for (var i = 0, len = data.length; i < len; i++){
+        if (i === index) continue;
+        $groups[i][0].setAttribute("data-active","");
+        $lightPies[i].css({opacity: settings.lightPiesOpacity});
+        $shadowPies[i].css({opacity: settings.lightPiesOpacity});
+      }
+      if (targetGroup.getAttribute("data-active") === "active"){
+        targetGroup.setAttribute("data-active","");
+        $lightPies[index].css({opacity: .8});
+        $shadowPies[index].css({opacity: .8});
+      } else {
+        targetGroup.setAttribute("data-active","active");
+        $lightPies[index].css({opacity: 1});
+        $shadowPies[index].css({opacity: 1});
+      }
+      settings.onPieClick.apply($(this),[e,data]);
+    }
     function drawPieSegments (animationDecimal){
       var startRadius = -PI/2,//-90 degree
           rotateAnimation = 1;
@@ -242,37 +349,113 @@
       //draw each path
       let pieRadiusChange = pieRadius;
       for (var i = 0, len = data.length; i < len; i++){
-        pieRadiusChange = pieRadius - pieRadius*0.05*i;
-        var segmentAngle = rotateAnimation * ((data[i].value/segmentTotal) * (PI*2)),//start radian
-        endRadius = startRadius + segmentAngle,
-        largeArc = ((endRadius - startRadius) % (PI * 2)) > PI ? 1 : 0;
-        var startX = centerX + cos(startRadius) * pieRadiusChange;
-        var startY = centerY + sin(startRadius) * pieRadiusChange;
-        var endX = centerX + cos(endRadius) * pieRadiusChange;
-        var endY = centerY + sin(endRadius) * pieRadiusChange;
-        var startX2 = centerX + cos(startRadius) * (pieRadiusChange + settings.lightPiesOffset),
-        startY2 = centerY + sin(startRadius) * (pieRadiusChange + settings.lightPiesOffset),
-        endX2 = centerX + cos(endRadius) * (pieRadiusChange + settings.lightPiesOffset),
-        endY2 = centerY + sin(endRadius) * (pieRadiusChange + settings.lightPiesOffset);
-        var mincxneterX = 0; 
-        var mincxneterY = 0;     
-        var cmd = [
-          'M', startX, startY,//Move pointer
-          'A', pieRadiusChange, pieRadiusChange , 0, largeArc, 1, endX, endY,//Draw outer arc path
-          'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
-          'Z'//Cloth path
-        ];
-        var cmd2 = [
-          'M', startX2, startY2,
-          'A', pieRadiusChange + settings.lightPiesOffset, pieRadiusChange + settings.lightPiesOffset, 0, largeArc, 1, endX2, endY2,//Draw outer arc path
-          'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
-          'Z'
-        ];
-        
-        $pies[i][0].setAttribute("d",cmd.join(' '));
-        $lightPies[i][0].setAttribute("d", cmd2.join(' '));
-        $shadowPies[i][0].setAttribute("d", cmd2.join(' '));
-        startRadius += segmentAngle;
+        if($($this).hasClass('different-radius')){
+          pieRadiusChange = pieRadius - pieRadius*0.05*i;
+          var segmentAngle = rotateAnimation * ((data[i].value/segmentTotal) * (PI*2)),//start radian
+          endRadius = startRadius + segmentAngle,
+          largeArc = ((endRadius - startRadius) % (PI * 2)) > PI ? 1 : 0;
+          var startX = centerX + cos(startRadius) * pieRadiusChange;
+          var startY = centerY + sin(startRadius) * pieRadiusChange;
+          var endX = centerX + cos(endRadius) * pieRadiusChange;
+          var endY = centerY + sin(endRadius) * pieRadiusChange;
+          var startX2 = centerX + cos(startRadius) * (pieRadiusChange + settings.lightPiesOffset),
+          startY2 = centerY + sin(startRadius) * (pieRadiusChange + settings.lightPiesOffset),
+          endX2 = centerX + cos(endRadius) * (pieRadiusChange + settings.lightPiesOffset),
+          endY2 = centerY + sin(endRadius) * (pieRadiusChange + settings.lightPiesOffset);
+          var mincxneterX = 0; 
+          var mincxneterY = 0;     
+          var cmd = [
+            'M', startX, startY,//Move pointer
+            'A', pieRadiusChange, pieRadiusChange , 0, largeArc, 1, endX, endY,//Draw outer arc path
+            'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
+            'Z'//Cloth path
+          ];
+          var cmd2 = [
+            'M', startX2, startY2,
+            'A', pieRadiusChange + settings.lightPiesOffset, pieRadiusChange + settings.lightPiesOffset, 0, largeArc, 1, endX2, endY2,//Draw outer arc path
+            'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
+            'Z'
+          ];
+          
+          $pies[i][0].setAttribute("d",cmd.join(' '));
+          $lightPies[i][0].setAttribute("d", cmd2.join(' '));
+          $shadowPies[i][0].setAttribute("d", cmd2.join(' '));
+          startRadius += segmentAngle;
+        }
+        else {
+          var segmentAngle = rotateAnimation * ((data[i].value/segmentTotal) * (PI*2)),//start radian
+          endRadius = startRadius + segmentAngle,
+          largeArc = ((endRadius - startRadius) % (PI * 2)) > PI ? 1 : 0;
+          var startX = centerX + cos(startRadius) * pieRadius;
+          var startY = centerY + sin(startRadius) * pieRadius;
+          var endX = centerX + cos(endRadius) * pieRadius;
+          var endY = centerY + sin(endRadius) * pieRadius;
+          var startX2 = centerX + cos(startRadius) * (pieRadius + settings.lightPiesOffset),
+          startY2 = centerY + sin(startRadius) * (pieRadius + settings.lightPiesOffset),
+          endX2 = centerX + cos(endRadius) * (pieRadius + settings.lightPiesOffset),
+          endY2 = centerY + sin(endRadius) * (pieRadius + settings.lightPiesOffset);
+          var mincxneterX = 0; 
+          var mincxneterY = 0;     
+          var cmd = [
+            'M', startX, startY,//Move pointer
+            'A', pieRadius, pieRadius , 0, largeArc, 1, endX, endY,//Draw outer arc path
+            'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
+            'Z'//Cloth path
+          ];
+          var cmd2 = [
+            'M', startX2, startY2,
+            'A', pieRadius + settings.lightPiesOffset, pieRadius + settings.lightPiesOffset, 0, largeArc, 1, endX2, endY2,//Draw outer arc path
+            'L', centerX + mincxneterX , centerY + mincxneterY,//Draw line to the center.
+            'Z'
+          ];
+          var textX = 0;
+          var textY  = 0;
+          if(Math.round((data[i].value*100)/segmentTotal) > 0){
+            if(Math.round((data[i].value*100)/segmentTotal) < 8 && Math.round((data[i].value*100)/segmentTotal) > 3){
+              if((pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX > 90 && (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX < 180){
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX + 5;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+              }
+              else if ((pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX < 90){
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX + 5;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+              }
+              else {
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX - 5;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+              }
+            }
+            else if(Math.round((data[i].value*100)/segmentTotal) < 4){
+              if((pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX > 90 && (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX < 120){
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX + 15;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+              }
+              else if ((pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX < 90 && (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY > 150){
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX + 15;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY + 5;
+              }
+              else if ((pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX < 90){
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX - 15;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY; 
+              }
+              else {
+                textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX + 5;
+                textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+              }
+            }
+            else {
+              textX = (pieRadius/1.5)*cos(startRadius + segmentAngle/2) + centerX;
+              textY = (pieRadius/1.5)*sin(startRadius + segmentAngle/2) + centerY;
+            }
+            $texts[i][0].setAttribute('x', textX);
+            $texts[i][0].setAttribute('y', textY);
+            $texts[i][0].innerHTML = Math.round((data[i].value*100)/segmentTotal) + '%';
+          }
+          $pies[i][0].setAttribute("d",cmd.join(' '));
+          $lightPies[i][0].setAttribute("d", cmd2.join(' '));
+          $shadowPies[i][0].setAttribute("d", cmd2.join(' '));
+          startRadius += segmentAngle;
+        }
       }
     }
 

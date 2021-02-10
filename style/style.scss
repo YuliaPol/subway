@@ -2028,7 +2028,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                     font-size: 12px;
                     line-height: 14px;
                     color: #000000;
-                    padding-left: 10px;
                 }
                 .value-line {
                     width: calc(100% - 100px);
@@ -2423,6 +2422,56 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         }
     }
 }
+.pieSimple-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .pieSimple-chart {
+        width: 60%;
+        & > div {
+            max-width: 100%;
+            width: 250px;
+            height: 250px;
+            margin: auto;
+            .percent-text {
+                opacity: 0;
+                transition: opacity 0.3s ease-in;
+                pointer-events: none;
+                &.show {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .pieSimple-legend {
+        width: 40%;
+        .legend-list {
+            .legend-item {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+                .square {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 2px;
+                }
+                .label {
+                    padding-left: 10px;
+                    font-family: $fontcolor;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: #473F3F;
+                }
+            }
+        }
+    }
+}
+.chart-pd-20 {
+    padding: 20px;
+}
 .scrollup {
     position: fixed;
     bottom: 20px;
@@ -2459,6 +2508,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 }
 @media screen and (max-width: 1400px) {
+    .nsr-wrapper .nsr-right {
+        padding-left: 20px;
+    }
+    .nsr-wrapper .nsr-right .flex-row .value-list .list-item {
+        width: 200px;
+    }
     .nsr-wrapper .nsr-left .star-list .star img {
         min-width: 70px;
     }
@@ -2469,8 +2524,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 }
 @media screen and (max-width: 1300px) {
+    .nsr-wrapper .nsr-right .nsr-right-header {
+        padding-bottom: 30px;
+    }
+    .nsr-wrapper .nsr-right {
+        padding-left: 15px;
+    }
+    .nsr-wrapper .nsr-right .flex-row .value-list .list-item {
+        width: 180px;
+    }
     .nsr-wrapper .nsr-left .star-list .star img {
+        width: 65px;
         min-width: 65px;
+    }
+    .nsr-wrapper .nsr-left .col-wrapper,
+    .nsr-wrapper .nsr-left .value-list {
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .blocks-list .block-wrapper {
         padding: 5px;
@@ -2512,6 +2582,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 }
 @media screen and (max-width: 1200px) {
+    .nsr-wrapper .nsr-left {
+        width: 55%;
+    }
+    .nsr-wrapper .nsr-right {
+        width: 45%;
+    }
+    .nsr-wrapper .nsr-left .star-list .star img {
+        width: 50px;
+        min-width: 50px;
+    }
     .blocks-list .block-wrapper .block-item .icon-col .icon {
         width: 40px;
         height: 40px;
@@ -2544,6 +2624,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 }
 @media screen and (max-width: 1100px) {
+    .nsr-wrapper {
+        flex-direction: column;
+        .nsr-left {
+            width: 100%;
+            padding-bottom: 20px;
+            .nsr-left-col {
+                width: 20%;
+                &:nth-child(1) {
+                    width: 60%;
+                }
+                .star-list .star {
+                    text-align: center;
+                }
+            }
+        }
+        .nsr-right {
+            width: 100%;
+        }
+    }
     .container .content .breadcrumps,
     .container .content .header-page,
     .box-container,
@@ -2605,6 +2704,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
      }
 }
 @media screen and (max-width: 767px){
+    .block-full-width {
+        padding-bottom: 10px;
+    }
     .page-content .filter-wrapper,
     .page-content .charts-wrapper {
         padding-left: 10px;
@@ -2643,6 +2745,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 }
 @media screen and (max-width: 600px){
+    .vert-chart-flex .circle-legend .legend-list .legend-item {
+        padding-bottom: 10px;
+    }
+    .vert-chart-flex {
+        flex-direction: column-reverse;
+        .circle-legend {
+            padding-bottom: 20px;
+            width: 70px;
+            .legend-list {
+                padding-left: 0px;
+            }
+        }
+        .vert-chart {
+            width: 100%;
+        }
+    }
     .page-content .charts-wrapper .flex-33 {
         flex-direction: column;
         & > div {
@@ -2666,7 +2784,76 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         }
     }
 }
+@media screen and (max-width: 500px){
+    .blocks-list .block-wrapper {
+        min-width: 50%;
+        width: 50%;
+    }
+    .vert-chart-flex .vert-chart .social-chart-list .list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .name {
+            width: 100%;
+            padding-bottom: 5px;
+        }
+        .value-line {
+            width: 100%;
+        }
+    }
+    .nsr-wrapper .nsr-left .star-list .star img {
+        width: 40px;
+        min-width: 40px;
+    }
+    .nsr-wrapper .nsr-left .col-wrapper,
+    .nsr-wrapper .nsr-left .value-list {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .nsr-wrapper .nsr-left .label {
+        font-size: 10px;
+    }
+    .nsr-wrapper .nsr-right .flex-row .value-list .list-item {
+        width: 150px;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+    .nsr-wrapper .nsr-right .flex-row .circle-col .cirle-wrapper {
+        width: 100px;
+        height: 100px;
+        .circle-content {
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+}
 @media screen and (max-width: 400px){
+    .blocks-list .block-wrapper .block-item .info-col {
+        padding-left: 10px;
+    }
+    .blocks-list .block-wrapper .block-item .info-col .label {
+        font-size: 10px;
+        line-height: 12px;
+    }
+    .blocks-list .block-wrapper .block-item .info-col .value {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .nsr-wrapper .nsr-right .flex-row {
+        flex-direction: column;
+        .value-list {
+            padding-bottom: 15px;
+        }
+    }
+    .nsr-wrapper .nsr-left .label {
+        font-size: 8px;
+        padding-bottom: 10px;
+    }
+    .nsr-wrapper .nsr-left .col-wrapper,
+    .nsr-wrapper .nsr-left .value-list {
+        padding-left: 2.5px !important;
+        padding-right: 2.5px !important;
+    }
     .radial-wrapper .radial-chart,
     .radial-wrapper .radial-legend {
         width: 100%;
