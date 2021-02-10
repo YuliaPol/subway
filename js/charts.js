@@ -96,7 +96,117 @@ function DrawCharts(chartData){
             if(chartData[i].type == 'RatingsChart'){
                 DrawRatingsChart(chartData[i].element, chartData[i].data);
             }
+            if(chartData[i].type == 'socialChart'){
+                DrawSocialChart(chartData[i].element, chartData[i].labels, chartData[i].datasets);
+            }
+            if(chartData[i].type == 'sourceChart'){
+                DrawSourceChart(chartData[i].element, chartData[i].labels, chartData[i].datasets);
+            }
         }
+    }
+}
+function DrawSourceChart(element, labels, datasets){
+    if($(element).length > 0 && datasets.length > 0 && labels.length > 0){
+        let chartHtml = '<div class="vert-chart-flex">';
+        
+        chartHtml += '<div class="vert-chart">';
+        chartHtml += '<div class="source-chart-list">';
+        
+        for (let index = 0; index < datasets.length; index++) {
+            let summary = 0;
+            for (let i = 0; i < datasets[index].data.length; i++) {
+                summary += parseInt(datasets[index].data[i]);
+            }
+
+            chartHtml += '<div class="list-item">';
+            chartHtml += '  <div class="name">' + datasets[index].name + '</div>';
+            chartHtml += '  <div class="values-list">';
+            for (let i = 0; i < datasets[index].data.length; i++) {
+                if(parseInt(datasets[index].data[i]) > 0){
+                    let percent = Math.ceil((100/summary)*parseInt(datasets[index].data[i]));
+                    chartHtml += '<div class="value-item" style="background: ' + labels[i].color + ';width: ' + percent +'%;">';
+                    chartHtml += '   <div class="progress">';
+                    chartHtml += '       ' + datasets[index].data[i];
+                    chartHtml += '   </div>';
+                    chartHtml += '   <div class="tooltip">';
+                    chartHtml += '       ' + percent +' %';
+                    chartHtml += '   </div>';
+                    chartHtml += '</div>';
+                }
+            }
+            chartHtml += '  </div>';
+            chartHtml += '</div>';
+        }
+        chartHtml += '</div>';
+        chartHtml += '</div>';
+
+        chartHtml += '<div class="circle-legend">';
+        chartHtml += '  <div class="legend-list">';
+        for (let index = 0; index < labels.length; index++) {
+            chartHtml += '<div class="legend-item">';
+            chartHtml += '   <div class="circle" style="background: ' + labels[index].color +'"></div>';
+            chartHtml += '   <div class="label">';
+            chartHtml += '       ' + labels[index].label; 
+            chartHtml += '   </div>';
+            chartHtml += '</div>';
+        }
+        chartHtml += '  </div>';
+        chartHtml += '</div>';
+        
+        chartHtml += '</div>';
+        $(chartHtml).appendTo($(element));
+    }
+}
+function DrawSocialChart(element, labels, datasets){
+    if($(element).length > 0 && datasets.length > 0 && labels.length > 0){
+        let chartHtml = '<div class="vert-chart-flex">';
+        
+        chartHtml += '<div class="vert-chart">';
+        chartHtml += '<div class="social-chart-list">';
+        
+        for (let index = 0; index < datasets.length; index++) {
+            let summary = 0;
+            for (let i = 0; i < datasets[index].data.length; i++) {
+                summary += parseInt(datasets[index].data[i]);
+            }
+
+            chartHtml += '<div class="list-item">';
+            chartHtml += '  <div class="name">' + datasets[index].name + '</div>';
+            chartHtml += '  <div class="value-line">';
+            for (let i = 0; i < datasets[index].data.length; i++) {
+                if(parseInt(datasets[index].data[i]) > 0){
+                    let percent = Math.ceil((100/summary)*parseInt(datasets[index].data[i]));
+                    chartHtml += '<div class="value-item" style="background: ' + labels[i].color + ';width: ' + percent +'%;">';
+                    chartHtml += '   <div class="percent">';
+                    chartHtml += '       ' + percent + '%';
+                    chartHtml += '   </div>';
+                    chartHtml += '   <div class="tooltip">';
+                    chartHtml += '       ' + datasets[index].data[i] +' шт';
+                    chartHtml += '   </div>';
+                    chartHtml += '</div>';
+                }
+            }
+            chartHtml += '  </div>';
+            chartHtml += '</div>';
+        }
+        chartHtml += '</div>';
+        chartHtml += '</div>';
+
+        chartHtml += '<div class="circle-legend">';
+        chartHtml += '  <div class="legend-list">';
+        for (let index = 0; index < labels.length; index++) {
+            chartHtml += '<div class="legend-item">';
+            chartHtml += '   <div class="circle" style="background: ' + labels[index].color +'"></div>';
+            chartHtml += '   <div class="label">';
+            chartHtml += '       ' + labels[index].label; 
+            chartHtml += '   </div>';
+            chartHtml += '</div>';
+        }
+        chartHtml += '  </div>';
+        chartHtml += '</div>';
+        
+        chartHtml += '</div>';
+        $(chartHtml).appendTo($(element));
     }
 }
 function DrawRatingsChart (element, data){
@@ -468,14 +578,12 @@ function drawShadowLineMultiple(element, labels,  data){
             gradient.addColorStop(0.1, data[index].backgroundFrom);
             gradient.addColorStop(0.9, data[index].backgroundTo);
             gradient.addColorStop(1, data[index].backgroundTo);
-            console.log(gradient);
             var datasetsTemp = {
                 backgroundColor: gradient,
                 data: dataTemp,
                 borderColor: data[index].borderColor,
                 label: "label"
             }
-            console.log(datasetsTemp);
             datasets.push(datasetsTemp);
         }
         var ChartData = {
@@ -530,8 +638,6 @@ function drawShadowLineMultiple(element, labels,  data){
                 display: false
             },
         };
-        console.log(labels);
-        console.log(datasets);
         chartInstanceTeam = new Chart(shadowLineEl, {
             type: 'line',
 			data: ChartData,

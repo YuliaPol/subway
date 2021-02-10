@@ -747,6 +747,7 @@ body {
 
 .page-content .charts-wrapper .chart-box {
   padding: 10px;
+  padding-bottom: 20px;
 }
 
 .page-content .charts-wrapper .chart-box .chart-box-conntent {
@@ -788,6 +789,10 @@ body {
   text-align: left;
   color: #000000;
   padding: 10px 20px;
+}
+
+.page-content .charts-wrapper .chart-box .chart-box-conntent .chart-header.bold {
+  font-weight: bold;
 }
 
 .page-content .charts-wrapper .chart-box .chart-box-conntent .nps-header {
@@ -2838,6 +2843,262 @@ body {
   color: #1E1E1E;
   left: 3px;
   bottom: -15px;
+}
+
+.vert-chart-flex {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 35px;
+}
+
+.vert-chart-flex .vert-chart {
+  width: calc(100% - 85px);
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item {
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .name {
+  width: 100px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  padding-left: 10px;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line {
+  width: calc(100% - 100px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.16);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item {
+  height: 17px;
+  position: relative;
+  z-index: 10;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item:hover .tooltip {
+  opacity: 1;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item .percent {
+  padding-left: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFFFF;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item .tooltip {
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+  position: absolute;
+  top: -40px;
+  left: calc(50% - 25px);
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFFFF;
+  background: #636363;
+  border-radius: 2px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  min-width: 60px;
+  text-align: center;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 6px);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #636363;
+  border-radius: 2px;
+  clear: both;
+}
+
+.vert-chart-flex .vert-chart .social-chart-list .list-item .value-line .value-item:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item {
+  padding-bottom: 20px;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .name {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  padding-bottom: 5px;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list {
+  width: 100%;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list .value-item {
+  height: 14px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 6px;
+  padding: 2px 5px;
+  position: relative;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list .value-item:hover .tooltip {
+  opacity: 1;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list .value-item .progress {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 9px;
+  line-height: 10px;
+  color: #FFFFFF;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list .value-item .tooltip {
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+  position: absolute;
+  top: -40px;
+  left: calc(50% - 25px);
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: #FFFFFF;
+  background: #636363;
+  border-radius: 2px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  min-width: 60px;
+  text-align: center;
+}
+
+.vert-chart-flex .vert-chart .source-chart-list .list-item .values-list .value-item .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: calc(50% - 6px);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #636363;
+  border-radius: 2px;
+  clear: both;
+}
+
+.vert-chart-flex .circle-legend {
+  width: 85px;
+}
+
+.vert-chart-flex .circle-legend .legend-list {
+  padding-left: 20px;
+}
+
+.vert-chart-flex .circle-legend .legend-list .legend-item {
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vert-chart-flex .circle-legend .legend-list .legend-item .circle {
+  width: 17px;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 50%;
+}
+
+.vert-chart-flex .circle-legend .legend-list .legend-item .label {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 11px;
+  color: #000000;
+  padding-left: 10px;
 }
 
 .daterangepicker .drp-buttons .btn {

@@ -211,7 +211,7 @@
                             <div class="chart-box-conntent">
                                 <div class="chart-content">
                                     <div class="vertical-bar-wrapper">
-                                        <div class="users-summary"></div>
+                                        <div class="multips-line"></div>
                                     </div>
                                 </div>
                             </div>
@@ -377,6 +377,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="block-full-width">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header bold">
+                                    Социальные сети (VK, Одноклассники, Facebook, Instagram, YouTube)
+                                </div>
+                                <div class="chart-content">
+                                    <div class="vert-social-charts"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-full-width">
+                        <div class="chart-box">
+                            <div class="chart-box-conntent">
+                                <div class="chart-header bold">
+                                    Официальные источники
+                                </div>
+                                <div class="chart-content">
+                                    <div class="vert-source-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -385,7 +409,7 @@
     <script>
          var chartData = new Array();
             chartData.push({
-                element: '.users-summary', // класс елемента
+                element: '.multips-line', // класс елемента
                 type: 'shadowLineMultiple',               //тип графіка
                 labels: ['01.01', '02.01', '03.01', '04.01', '05.01' ],
                 datasets: [                          //данные графика  
@@ -409,7 +433,74 @@
                     }
                 ]
             });
-
+            chartData.push({
+                element: '.vert-social-charts', // класс елемента
+                type: 'socialChart',               //тип графіка
+                labels: [
+                    {
+                        label: "Негатив",
+                        color: "#FFAAAA"
+                    },
+                    {
+                        label: "Нейтрал",
+                        color: "#FEB272"
+                    },
+                    {
+                        label: "Позитив",
+                        color: "#B5E6BB"
+                    }
+                ],
+                datasets: [
+                    {
+                        name: "VK",
+                        data: [12, 10, 15] //[Негатив, Нейтрал, Позитив ]
+                    },
+                    {
+                        name: "Одноклассники",
+                        data: [42, 40, 45] //[Негатив, Нейтрал, Позитив ]
+                    },
+                    {
+                        name: "Facebook",
+                        data: [120, 10, 150] //[Негатив, Нейтрал, Позитив ]
+                    },
+                    {
+                        name: "Instagram",
+                        data: [20, 100, 150] //[Негатив, Нейтрал, Позитив ]
+                    },
+                    {
+                        name: "YouTube",
+                        data: [35, 10, 15] //[Негатив, Нейтрал, Позитив ]
+                    }
+                ]
+            });
+            chartData.push({
+                element: '.vert-source-chart', // класс елемента
+                type: 'sourceChart',               //тип графіка
+                labels: [
+                    {
+                        label: "Позитив",
+                        color: "#79D14F"
+                    },
+                    {
+                        label: "Нейтрал",
+                        color: "#FFB43B"
+                    },
+                    {
+                        label: "Негатив",
+                        color: "#F96972"
+                    }
+                ],
+                datasets: [
+                    {
+                        name: "сайт ",
+                        data: [120, 50, 15] //[Позитив, Нейтрал, Негатив ]
+                    },
+                    {
+                        name: "приложение ",
+                        data: [200, 140, 45] //[Позитив, Нейтрал, Негатив ]
+                    }
+                ]
+            });
     </script>
     <script>
         jQuery(function ($) {
