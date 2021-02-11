@@ -51,6 +51,28 @@ body {
   text-decoration: none;
 }
 
+* {
+  /* width */
+  /* Track */
+  /* Handle */
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #e2e2e2;
+          box-shadow: inset 0 0 5px #e2e2e2;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #374448;
+  border-radius: 8px;
+}
+
 .container {
   width: 100%;
   min-height: calc(100vh - 70px);
@@ -946,6 +968,645 @@ body {
 
 .page-content .pad-top-30 {
   padding-top: 30px;
+}
+
+.page-content .search-wrapper {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page-content .search-wrapper .search-header {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #605A5A;
+  padding-bottom: 15px;
+}
+
+.page-content .search-wrapper .search-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-content .search-wrapper .search-form .input-text {
+  max-width: 325px;
+  width: 100%;
+}
+
+.page-content .search-wrapper .search-form .input-text input {
+  height: 37px;
+  background: #FFFFFF;
+  -webkit-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: none;
+  outline: none;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #696969;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.page-content .search-wrapper .search-form .input-submit {
+  padding-left: 15px;
+}
+
+.page-content .search-wrapper .search-form .input-submit .btn-submit {
+  height: 37px;
+  background: #D7B122;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.page-content .anket-wrapper {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.page-content .anket-wrapper .anket-box {
+  background: #FFFFFF;
+  border: 1px solid #D6D4D4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  -webkit-transition: height 0.3s ease-in;
+  -o-transition: height 0.3s ease-in;
+  transition: height 0.3s ease-in;
+  padding: 20px;
+}
+
+.page-content .anket-wrapper .anket-box .flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-content .anket-wrapper .anket-box .flex-row .info-col {
+  width: 70%;
+  padding-right: 35px;
+}
+
+.page-content .anket-wrapper .anket-box .flex-row .picture-col {
+  width: 30%;
+}
+
+.page-content .anket-wrapper .anket-box .flex-row .picture-col img {
+  width: 100%;
+}
+
+.page-content .anket-wrapper .anket-box .star-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-bottom: 30px;
+}
+
+.page-content .anket-wrapper .anket-box .star-list .star-item {
+  width: 27px;
+  height: 27px;
+  background: url(./../img/icon-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-left: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .icon-google-map {
+  width: 13px;
+  height: 13px;
+  background: url(./../img/icon-google-map.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+          background-size: cover;
+  margin-right: 3px;
+  display: inline-block;
+}
+
+.page-content .anket-wrapper .anket-box .icon-google-map {
+  width: 13px;
+  height: 13px;
+  background: url(./../img/icon-google-map.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.page-content .anket-wrapper .anket-box .icon-star {
+  width: 13px;
+  height: 13px;
+  background: url(./../img/icon-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.page-content .anket-wrapper .anket-box .icon-user {
+  width: 13px;
+  height: 13px;
+  background: url(./../img/icon-user.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.page-content .anket-wrapper .anket-box .icon-map {
+  width: 13px;
+  height: 13px;
+  background: url(./../img/icon-map.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ECECEC;
+  min-width: 50px;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info {
+  padding-left: 20px;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .name {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #000000;
+  padding-bottom: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .name .age {
+  color: #696969;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list .info-item {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #BEBEBE;
+  padding-right: 35px;
+}
+
+.page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list .info-item a {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #BEBEBE;
+  outline: none;
+  text-decoration: underline;
+}
+
+.page-content .anket-wrapper .anket-box .anket-text {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #605A5A;
+  padding-bottom: 20px;
+  padding-top: 25px;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list > div {
+  width: 33.3%;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .tab-item {
+  border-bottom: 1px solid #ECECEC;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #696969;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  padding: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .tab-item::after {
+  content: " ";
+  position: absolute;
+  bottom: -1px;
+  height: 3px;
+  background: #B51B1C;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in;
+  -o-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .tab-item.active::after {
+  opacity: 1;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .btn-wrapper {
+  padding-left: 15px;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .btn-wrapper .btn-yellow {
+  width: 100%;
+  padding: 10px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  background: #D7B122;
+  border: 1px solid #BEB9B9;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-content-wrapper {
+  padding-top: 20px;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-content-wrapper .tab-content {
+  display: none;
+}
+
+.page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-content-wrapper .tab-content.active {
+  display: block;
+}
+
+.page-content .anket-wrapper .anket-box .info-content .info-row {
+  padding-bottom: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page-content .anket-wrapper .anket-box .info-content .info-row .label {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.page-content .anket-wrapper .anket-box .info-content .info-row .label.grey-text {
+  color: #BEBEBE;
+}
+
+.page-content .anket-wrapper .anket-box .info-content .info-row .label.grey-text a {
+  color: #BEBEBE;
+  outline: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper {
+  max-height: 700px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper {
+  width: 100%;
+  padding-bottom: 25px;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper.message-right .message-item {
+  text-align: right;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper.message-right .message-item .author {
+  text-align: right;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper.message-left .message-item {
+  text-align: left;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper.message-left .message-item .author {
+  text-align: left;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper .message-item .author {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 17px;
+  color: #858585;
+  padding-bottom: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .message-wrapper .message-item .message-body {
+  display: inline-block;
+  padding: 15px 20px;
+  background: #F6F6F6;
+  border-radius: 10px;
+  max-width: 460px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 22px;
+  color: #858585;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .new-messages {
+  position: relative;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.375px;
+  text-transform: uppercase;
+  color: rgba(181, 27, 28, 0.5);
+  padding-bottom: 15px;
+}
+
+.page-content .anket-wrapper .anket-box .chat-wrapper .new-messages::after {
+  content: " ";
+  position: absolute;
+  top: 7px;
+  left: 55px;
+  right: 0px;
+  background: rgba(181, 27, 28, 0.5);
+  height: 2px;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message {
+  position: relative;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .download-files-wrapper {
+  position: absolute;
+  border: 1px dashed #858585;
+  border-radius: 15px;
+  padding: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  top: -130px;
+  left: 0px;
+  right: 0px;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  max-height: 125px;
+  overflow-y: auto;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .download-files-wrapper .download-file-item {
+  width: 16%;
+  padding: 10px;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .download-files-wrapper .download-file-item .icon-file {
+  background: url(./../img/icon-file.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  height: 50px;
+  width: 100%;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .download-files-wrapper .download-file-item .file-name {
+  width: 100%;
+  padding-top: 5px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #858585;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 10px;
+  border: 1px solid #F0F0F0;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .message-text {
+  width: 100%;
+  padding-top: 5px;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .message-text textarea {
+  padding: 0px 5px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #858585;
+  resize: none;
+  border: none;
+  outline: none;
+  height: 27px;
+  width: 100%;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .message-text textarea::-webkit-scrollbar {
+  width: 1px;
+  background: transparent;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .add-file {
+  padding-left: 15px;
+  padding-right: 16px;
+  padding-top: 5px;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .add-file .icon-file {
+  width: 25px;
+  height: 25px;
+  background: url(./../img/icon-add-file.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  cursor: pointer;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .add-file input[type=file] {
+  display: none;
+}
+
+.page-content .anket-wrapper .anket-box .form-add-message .form-flex .message-submit .btn-submit {
+  background: #D7B122;
+  padding: 6px 15px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .radial-wrapper {
@@ -2387,6 +3048,10 @@ body {
   padding-bottom: 30px;
 }
 
+.block-full-width.no-pad {
+  padding: 0px;
+}
+
 .block-full-width .flex-chart-circle {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3566,6 +4231,9 @@ body {
 }
 
 @media screen and (max-width: 1300px) {
+  .page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list .info-item {
+    padding-right: 15px;
+  }
   .nsr-wrapper .nsr-right .nsr-right-header {
     padding-bottom: 30px;
   }
@@ -3625,6 +4293,22 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+  .page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .page-content .anket-wrapper .anket-box .user-info-wrapper .user-info .info-list .info-item {
+    padding-bottom: 10px;
+  }
   .nsr-wrapper .nsr-left {
     width: 55%;
   }
@@ -3699,7 +4383,9 @@ body {
     padding-right: 20px;
   }
   .page-content .filter-wrapper,
-  .page-content .charts-wrapper {
+  .page-content .charts-wrapper,
+  .page-content .search-wrapper,
+  .page-content .anket-wrapper {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3709,6 +4395,23 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+  .page-content .anket-wrapper .anket-box .flex-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .page-content .anket-wrapper .anket-box .flex-row .info-col {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .page-content .anket-wrapper .anket-box .flex-row .picture-col {
+    width: 100%;
+    max-width: 300px;
+    padding-bottom: 15px;
+  }
   .block-full-width .flex-chart-circle {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
@@ -3764,7 +4467,9 @@ body {
     padding-bottom: 10px;
   }
   .page-content .filter-wrapper,
-  .page-content .charts-wrapper {
+  .page-content .charts-wrapper,
+  .page-content .search-wrapper,
+  .page-content .anket-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -3806,6 +4511,26 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list > div {
+    width: 50%;
+  }
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .btn-wrapper {
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .btn-wrapper .btn-yellow {
+    max-width: 120px;
+  }
+  .page-content .anket-wrapper .anket-box .form-add-message .download-files-wrapper .download-file-item {
+    width: 20%;
+  }
   .vert-chart-flex .circle-legend .legend-list .legend-item {
     padding-bottom: 10px;
   }
@@ -3860,9 +4585,25 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .tab-item,
+  .page-content .anket-wrapper .anket-box .tabs-wrapper .tabs-list .btn-wrapper .btn-yellow {
+    font-size: 12px;
+  }
   .blocks-list .block-wrapper {
     min-width: 50%;
     width: 50%;
+  }
+  .page-content .anket-wrapper .anket-box .form-add-message .form-flex {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .page-content .anket-wrapper .anket-box .form-add-message .form-flex .message-text {
+    margin-bottom: 20px;
   }
   .vert-chart-flex .vert-chart .social-chart-list .list-item {
     -webkit-box-orient: vertical;

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffemania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./style/daterangepicker.css">
+    <link rel="stylesheet" href="./style/daterangepicker-kv.css">
+    <link rel="stylesheet" href="./style/style.css">
+
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/moment.js"></script>
+    <script src="./js/daterangepicker.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar-aside">
+                <button type="button" class="btn-aside-menu toggle-sidebar">
+                </button>
+            </div>
+            <div class="navbar-user">
+                <div class="user">
+                    <div class="user-wrapper show-user-dropdown">
+                        <div class="icon-user"></div>
+                        <div class="user-name">ADMINS</div>
+                    </div>
+                    <div class="dropdown-user">
+                        <ul>
+                            <li>
+                                <a href="#" class="logout">Выход </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="menu-sidebar">
+                <div class="logo">
+                    <a href="#">
+                        <img src="./img/logo.svg" alt="">
+                    </a>
+                </div>
+                <div class="menu">
+                    <nav>
+                        <ul class="sidebar-nav treeview-menu">
+                            <li class="active">
+                                <a href="#">Ключевые показатели</a>
+                            </li>
+                            <li>
+                                <a href="#">Сводная информация</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="breadcrumps">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i> Главная</a> /
+                    </li>
+                    <li>
+                        <span>
+                            Ключевые показатели
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="page-content">
+                <div class="filter-wrapper">
+                    <div class="box">
+                        <h6>Макрорегион </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Макрорегион 1</option>
+                                <option value="2">Макрорегион 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Териториальная единица </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Териториальная единица 1</option>
+                                <option value="2">Териториальная единица 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Город </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Город 1</option>
+                                <option value="2">Город 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Ресторан </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Ресторан 1</option>
+                                <option value="2">Ресторан 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Источник </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Источник 1</option>
+                                <option value="2">Источник 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Тональность </h6>
+                        <div class="form-group field-filter-item">
+                            <select class="form-control input-sm">
+                                <option value="">Все</option>
+                                <option value="1">Тональность 1</option>
+                                <option value="2">Тональность 2</option>
+                            </select>
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <h6>Период</h6>
+                        <div class="drp-container-selectdata form-group field-filter-date">
+                            <input type="text" id="filter-date" class="form-control" value="">
+                            <div class="select-caret"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="visibility: hidden">Подобрать</button>
+                    </div>
+                </div>
+                <div class="search-wrapper">
+                    <div class="search-header">
+                        Поиск анкеты по региону
+                    </div>
+                    <form action="#">
+                        <div class="search-form">
+                            <div class="input-text">
+                                <input type="text" name="search">
+                            </div>
+                            <div class="input-submit">
+                                <button class="btn-submit">Поиск</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="anket-wrapper">
+                    <div class="anket-box">
+                        <div class="flex-row">
+                            <div class="info-col">
+                                <div class="star-list">
+                                    <div class="star-item"></div>
+                                    <div class="star-item"></div>
+                                    <div class="star-item"></div>
+                                    <div class="star-item"></div>
+                                    <div class="star-item"></div>
+                                </div>
+                                <div class="user-info-wrapper">
+                                    <div class="user-picture">
+                                        <img src="./img/anket-img.jpg" alt="Image">
+                                    </div>
+                                    <div class="user-info">
+                                        <div class="name">
+                                            Иван Иванов <span class="age">(22 года)</span>
+                                        </div>
+                                        <div class="info-list">
+                                            <div class="info-item">
+                                                <div class="icon-google-map"></div>
+                                                <a href="#">maps.google.com</a>
+                                            </div>
+                                            <div class="info-item">24.10.2020 / 12:40</div>
+                                            <div class="info-item">Россия, Московская обл</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="anket-text">
+                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                                </div>
+                                <div class="tabs-wrapper">
+                                    <div class="tabs-list">
+                                        <div class="tab-item active" data-open="tab-content-1">
+                                            Информация
+                                        </div>
+                                        <div class="tab-item"  data-open="tab-content-2">
+                                            Ответы на отзыв
+                                        </div>
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="btn-yellow">
+                                                Ответить
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tabs-content-wrapper">
+                                        <div class="tab-content" id="tab-content-1"   style="display: block;">
+                                            <div class="info-content">
+                                                <div class="info-row">
+                                                    <div class="icon-star"></div>
+                                                    <div class="label">5</div>
+                                                </div>
+                                                <div class="info-row">
+                                                    <div class="icon-user"></div>
+                                                    <div class="label">Иван Иванов <span class="age">(22 года, муж)<span></div>
+                                                </div>
+                                                <div class="info-row">
+                                                    <div class="icon-google-map"></div>
+                                                    <div class="label grey-text">
+                                                        <a href="#">maps.google.com</a>
+                                                    </div>
+                                                </div>
+                                                <div class="info-row">
+                                                    <div class="icon-map"></div>
+                                                    <div class="label grey-text">Россия, Московская обл</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content" id="tab-content-2">
+                                            <div class="chat-wrapper">
+                                                <div class="message-wrapper message-left">
+                                                    <div class="message-item">
+                                                        <div class="author">
+                                                            Me, 10.:22 
+                                                        </div>
+                                                        <div class="message-body">
+                                                            Hello am new to this system can i get a breakdown on how it works?
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="message-wrapper message-right">
+                                                    <div class="message-item">
+                                                        <div class="author">
+                                                            Daniel, 10:24
+                                                        </div>
+                                                        <div class="message-body">
+                                                            Yes we currently run both on our platform here
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="message-wrapper message-left">
+                                                    <div class="message-item">
+                                                        <div class="author">
+                                                            Me, 3 minutes ago
+                                                        </div>
+                                                        <div class="message-body">
+                                                            Please, can you go into details bout the service
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="new-messages">
+                                                    Новые
+                                                </div>
+                                                <div class="message-wrapper message-left">
+                                                    <div class="message-item">
+                                                        <div class="author">
+                                                            Daniel, 9 minutes ago
+                                                        </div>
+                                                        <div class="message-body">
+                                                            Hello am new to this system can i get a breakdown on how it works?
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="message-wrapper message-right">
+                                                    <div class="message-item">
+                                                        <div class="author">
+                                                            Agent Rue, 9 minutes ago
+                                                        </div>
+                                                        <div class="message-body">
+                                                            Yes we currently run both on our platform here
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-add-message">
+                                                <form action="#">
+                                                    <div class="form-flex">
+                                                        <div class="message-text">
+                                                            <textarea name="message" placeholder="Введите Ваше сообщение"></textarea>
+                                                        </div>
+                                                        <div class="add-file">
+                                                            <label for="message-file">
+                                                                <div class="icon-file"></div>
+                                                            </label>
+                                                            <input type="file" name="file" id="message-file" multiple>
+                                                        </div>
+                                                        <div class="message-submit">
+                                                            <button class="btn-submit">
+                                                                Отправыть
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="picture-col">
+                                <img src="./img/anket-img.jpg" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(function ($) {
+            $(document).ready(function () {
+                $('.field-filter-date input').daterangepicker({
+                    opens: 'rigth',
+                    locale: {
+                        format: 'DD-MM-YYYY',
+                        applyLabel: 'Принять',
+                        cancelLabel: 'Отмена',
+                        invalidDateLabel: 'Выберите дату',
+                        daysOfWeek: ['Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс', 'Пн'],
+                        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                        firstDay: 1
+                    }
+                }, function (start, end, label) {
+                });
+            });
+        });
+    </script>
+</body>
+</html>
