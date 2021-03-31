@@ -1,5 +1,5 @@
 $fontpage: Arial, Helvetica, sans-serif;
-
+$maingreen: #009239;
 .labels-wrapper {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -248,7 +248,7 @@ $fontpage: Arial, Helvetica, sans-serif;
                             font-weight: normal;
                             font-size: 14px;
                             line-height: 16px;
-                            color: #009239;
+                            color: $maingreen;
                             text-decoration: none;
                         }
                     }
@@ -379,7 +379,7 @@ $fontpage: Arial, Helvetica, sans-serif;
             .btn-wrapper {
                 padding-top: 30px;
                 .btn-submit {
-                    background: #009239;
+                    background: $maingreen;
                     border: 1px solid #BEB9B9;
                     padding: 10px;
                     font-family: $fontpage;
@@ -492,6 +492,102 @@ $fontpage: Arial, Helvetica, sans-serif;
           opacity: 0;
           transform: scale(1.3);
           transition: opacity 300ms cubic-bezier(0.2, 0, 0, 1), transform 400ms cubic-bezier(0.3, 0, 0, 1.4);
+        }
+    }
+}
+ul.pagination {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    &.bg-white {
+        background-color: #ffffff;
+    }
+    li {
+        padding: 0px 5px;
+        a,
+        span {
+            margin: 20px 0px;
+            padding: 6px 12px;
+            background: #FBFBFB;
+            color: #000000;
+            border: none;
+            border-right: none;
+            text-decoration: none;
+            border-radius: 3px;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 18px;
+            color: #605A5A;
+            &:hover {
+                background-color: $maingreen !important;
+                color: #FFFFFF !important;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+        &.active {
+            a {
+                background-color: $maingreen !important;
+                color: #FFFFFF !important;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+    .prev {
+        span {
+            border: 1px solid $maingreen;
+            border-radius: 4px;
+            padding: 6px 12px;
+            background-color: $maingreen;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #FFFFFF;
+        }
+        a {
+            border: 1px solid $maingreen;
+            border-radius: 4px;
+            padding: 6px 12px;
+            background-color: $maingreen;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #FFFFFF;
+        }
+    }
+    .next {
+        span {
+            border: 1px solid $maingreen;
+            border-radius: 4px;
+            padding: 6px 12px;
+            background-color: $maingreen;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #FFFFFF;
+        }
+        a {
+            border: 1px solid $maingreen;
+            border-radius: 4px;
+            padding: 6px 12px;
+            background-color: $maingreen;
+            font-family: $fontpage;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #FFFFFF;
         }
     }
 }
@@ -624,6 +720,9 @@ $fontpage: Arial, Helvetica, sans-serif;
     }
 }
 @media screen and (max-width: 500px) {
+    .companies-table-wrapper .pagination {
+        padding-bottom: 80px;
+    }
     .tabs-container .tabs-label-wrapper {
         flex-wrap: wrap;
         .tab-label {

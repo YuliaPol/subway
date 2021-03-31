@@ -610,6 +610,115 @@
   transition: opacity 300ms cubic-bezier(0.2, 0, 0, 1), transform 400ms cubic-bezier(0.3, 0, 0, 1.4), -webkit-transform 400ms cubic-bezier(0.3, 0, 0, 1.4), -o-transform 400ms cubic-bezier(0.3, 0, 0, 1.4);
 }
 
+ul.pagination {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+ul.pagination.bg-white {
+  background-color: #ffffff;
+}
+
+ul.pagination li {
+  padding: 0px 5px;
+}
+
+ul.pagination li a,
+ul.pagination li span {
+  margin: 20px 0px;
+  padding: 6px 12px;
+  background: #FBFBFB;
+  color: #000000;
+  border: none;
+  border-right: none;
+  text-decoration: none;
+  border-radius: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  color: #605A5A;
+}
+
+ul.pagination li a:hover,
+ul.pagination li span:hover {
+  background-color: #009239 !important;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+ul.pagination li.active a {
+  background-color: #009239 !important;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+ul.pagination .prev span {
+  border: 1px solid #009239;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #009239;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
+ul.pagination .prev a {
+  border: 1px solid #009239;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #009239;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
+ul.pagination .next span {
+  border: 1px solid #009239;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #009239;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
+ul.pagination .next a {
+  border: 1px solid #009239;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background-color: #009239;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
+
 @media screen and (max-width: 1350px) {
   .tabs-container .tabs-label-wrapper .tab-label {
     font-size: 14px;
@@ -736,6 +845,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  .companies-table-wrapper .pagination {
+    padding-bottom: 80px;
+  }
   .tabs-container .tabs-label-wrapper {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;

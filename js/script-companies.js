@@ -4,6 +4,11 @@ jQuery(function ($) {
         $('.tabs-container .tab-label').click(function(e){
             $(this).parents('.tabs-label-wrapper').find('.tab-label').removeClass('active');
             $(this).addClass('active');
+            if($('.changed-breadcrumps').length > 0) {
+                let label = $(this).html();
+                $('.changed-breadcrumps').html(label);
+            }
+            
             var openBlock = $(this).attr('data-open');
             $(this).parents('.tabs-container').find('.tab-content').fadeOut(0);
             $(this).parents('.tabs-container').find('.tab-content').removeClass('active');
