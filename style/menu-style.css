@@ -346,6 +346,93 @@ body {
   border-radius: 10px;
 }
 
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 4px;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon.icon-my-companies {
+  background: url(./../img/icon-myCompanies.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon.icon-my-resources {
+  background: url(./../img/icon-resources.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon.icon-reviews {
+  background: url(./../img/icon-comments.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon.icon-faq {
+  background: url(./../img/icon-faq.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .icon.icon-price {
+  background: url(./../img/icon-price.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active .icon.icon-my-companies {
+  background: url(./../img/icon-myCompanies-active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active .icon.icon-my-resources {
+  background: url(./../img/icon-resources-active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active .icon.icon-reviews {
+  background: url(./../img/icon-comments-active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active .icon.icon-faq {
+  background: url(./../img/icon-faq-active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.container .sidebar .menu .sidebar-nav.treeview-menu .active .icon.icon-price {
+  background: url(./../img/icon-price-active.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
 .container .sidebar .menu .sidebar-nav.treeview-menu .active a {
   background: #009239;
   color: #FFFFFF;
@@ -494,6 +581,7 @@ body {
   padding-top: 22px;
   padding-bottom: 17px;
   padding-left: 35px;
+  padding-right: 35px;
   border-bottom: 1px solid #BEBEBE;
 }
 
@@ -571,7 +659,6 @@ body {
 
 .page-content .filter-wrapper .box {
   width: calc(20% - 20px);
-  min-width: 210px;
   background: #ffffff;
   border: 1px solid #BEBEBE;
   border-radius: 2px;

@@ -270,7 +270,75 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                         outline: none;
                         border-radius: 10px;
                     }
+                    .icon {
+                        display: inline-block;
+                        width: 17px;
+                        height: 17px;
+                        margin-right: 4px;
+                        &.icon-my-companies {
+                            background: url(./../img/icon-myCompanies.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &.icon-my-resources {
+                            background: url(./../img/icon-resources.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &.icon-reviews {
+                            background: url(./../img/icon-comments.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &.icon-faq {
+                            background: url(./../img/icon-faq.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &.icon-price {
+                            background: url(./../img/icon-price.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                    }
                     .active {
+                        .icon {
+                            &.icon-my-companies {
+                                background: url(./../img/icon-myCompanies-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            &.icon-my-resources {
+                                background: url(./../img/icon-resources-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            &.icon-reviews {
+                                background: url(./../img/icon-comments-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            &.icon-faq {
+                                background: url(./../img/icon-faq-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            &.icon-price {
+                                background: url(./../img/icon-price-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                        }
                         a {
                             background: #009239;
                             color: #FFFFFF;
@@ -399,6 +467,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         padding-top: 22px;
         padding-bottom: 17px;
         padding-left: 35px;
+        padding-right: 35px;
         border-bottom: 1px solid #BEBEBE;
         ul {
             display: flex;
@@ -452,7 +521,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         border-bottom: 1px solid #BEBEBE;
         .box {
             width: calc(20% - 20px);
-            min-width: 210px;
             background: #ffffff;
             border: 1px solid #BEBEBE;
             border-radius: 2px;

@@ -719,6 +719,563 @@ ul.pagination .next a {
   color: #FFFFFF;
 }
 
+.breadcrumps-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.download-wrap .download-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #514B4B;
+  padding-right: 10px;
+  display: inline-block;
+}
+
+.download-wrap .download-icon {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background: url(./../img/icon-download.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.download-wrap a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.reviews-labels {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.reviews-labels .review-label-box {
+  width: calc(20% - 20px);
+  margin: 10px;
+  background: #D2F1DE;
+  border: 1px solid #99E7B7;
+  border-radius: 10px;
+  padding: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.reviews-labels .review-label-box .info-col {
+  width: 65%;
+  position: relative;
+}
+
+.reviews-labels .review-label-box .info-col::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  right: 0px;
+  top: -5px;
+  bottom: -5px;
+  background-color: #ffffff;
+}
+
+.reviews-labels .review-label-box .info-col .name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #797A7C;
+  padding-bottom: 8px;
+}
+
+.reviews-labels .review-label-box .info-col .value {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #797A7C;
+}
+
+.reviews-labels .review-label-box .info-col .value-green {
+  color: #009239;
+}
+
+.reviews-labels .review-label-box .info-col .value-red {
+  color: #BB6262;
+}
+
+.reviews-labels .review-label-box .icon-col {
+  width: 35%;
+  padding-left: 5px;
+  text-align: center;
+}
+
+.reviews-labels .review-label-box .icon-col .icon {
+  width: 44px;
+  height: 44px;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.reviews-labels .review-label-box .icon-col .icon.icon-all-review {
+  background: url(./../img/icon-all-reviws.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.reviews-labels .review-label-box .icon-col .icon.icon-good-review {
+  background: url(./../img/icon-good-reviews.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.reviews-labels .review-label-box .icon-col .icon.icon-bad-review {
+  background: url(./../img/icon-bad-reviews.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.reviews-labels .review-label-box .icon-col .icon.icon-no-rate {
+  background: url(./../img/reviews-without-rate.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.reviews-labels .review-label-box .icon-col .icon-star {
+  width: 42px;
+  height: 42px;
+  background: url(./../img/icon-review-rating.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding: 2px;
+}
+
+.reviews-labels .review-label-box .icon-col .icon-star .icon-active {
+  width: 100%;
+  height: 100%;
+  background: url(./../img/icon-review-rating-star.svg);
+  background-position: left;
+  -webkit-background-size: 40px 40px;
+          background-size: 40px;
+  background-repeat: no-repeat;
+}
+
+.page-content .filter-wrapper .box.box-date h6 {
+  position: relative;
+  padding-right: 30px;
+}
+
+.page-content .filter-wrapper .box.box-date h6::after {
+  content: "";
+  width: 25px;
+  height: 21px;
+  background: url(./../img/icon-date.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  position: absolute;
+  right: 0px;
+  top: 8px;
+}
+
+.daterangepicker .drp-buttons .btn {
+  border: none;
+  border-radius: 2px;
+  background: #009239;
+  color: #ffffff;
+  padding: 10px 15px;
+  -webkit-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.daterangepicker .drp-buttons .btn:hover {
+  background: #009239;
+}
+
+.daterangepicker .drp-selected {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #505050;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.daterangepicker .calendar-table td.active,
+.daterangepicker .calendar-table td.active:hover {
+  background-color: #009239;
+  color: #ffffff;
+}
+
+.daterangepicker .calendar-table th,
+.daterangepicker .calendar-table td {
+  color: #505050;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.reviews-table-wrappper {
+  width: 100%;
+  background: #FFFFFF;
+  padding-bottom: 20px;
+}
+
+.reviews-table-wrappper .filter-table {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.reviews-table-wrappper .filter-table .filter-item {
+  width: 25%;
+  padding-right: 10px;
+}
+
+.reviews-table-wrappper .filter-table .filter-item input[type=checkbox] {
+  display: none;
+}
+
+.reviews-table-wrappper .filter-table .filter-item input[type=checkbox]:checked ~ label .checkbox-icon .checkmark_stem {
+  height: 15px;
+}
+
+.reviews-table-wrappper .filter-table .filter-item input[type=checkbox]:checked ~ label .checkbox-icon .checkmark_kick {
+  height: 6px;
+}
+
+.reviews-table-wrappper .filter-table .filter-item label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  cursor: pointer;
+}
+
+.reviews-table-wrappper .filter-table .filter-item label .checkbox-icon {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  border: 1px solid #BEBEBE;
+  position: relative;
+  border-radius: 2px;
+}
+
+.reviews-table-wrappper .filter-table .filter-item label .checkbox-icon .checkmark {
+  position: absolute;
+  top: -1px;
+  left: 3px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.reviews-table-wrappper .filter-table .filter-item label .checkbox-icon .checkmark_stem {
+  position: absolute;
+  width: 1px;
+  background-color: #009239;
+  left: 6px;
+  top: -1px;
+  height: 0px;
+  -webkit-transition: height 0.2s ease-in;
+  -o-transition: height 0.2s ease-in;
+  transition: height 0.2s ease-in;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+       -o-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.reviews-table-wrappper .filter-table .filter-item label .checkbox-icon .checkmark_kick {
+  position: absolute;
+  width: 1px;
+  background-color: #009239;
+  left: 3px;
+  top: 11px;
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+       -o-transform: rotate(270deg);
+          transform: rotate(270deg);
+  height: 0px;
+  -webkit-transition: height 0.2s ease-in;
+  -o-transition: height 0.2s ease-in;
+  transition: height 0.2s ease-in;
+}
+
+.reviews-table-wrappper .filter-table .filter-item .text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #888585;
+  padding-left: 10px;
+}
+
+.reviews-table-wrappper .table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.reviews-table-wrappper table {
+  width: 100%;
+}
+
+.reviews-table-wrappper table th,
+.reviews-table-wrappper table td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.reviews-table-wrappper table th:nth-child(1),
+.reviews-table-wrappper table td:nth-child(1) {
+  width: 11%;
+}
+
+.reviews-table-wrappper table th:nth-child(2),
+.reviews-table-wrappper table td:nth-child(2) {
+  width: 15%;
+}
+
+.reviews-table-wrappper table th:nth-child(3),
+.reviews-table-wrappper table td:nth-child(3) {
+  width: 10%;
+}
+
+.reviews-table-wrappper table th:nth-child(4),
+.reviews-table-wrappper table td:nth-child(4) {
+  width: 12%;
+}
+
+.reviews-table-wrappper table th:nth-child(5),
+.reviews-table-wrappper table td:nth-child(5) {
+  width: 12%;
+}
+
+.reviews-table-wrappper table th:nth-child(6),
+.reviews-table-wrappper table td:nth-child(6) {
+  width: 40%;
+}
+
+.reviews-table-wrappper table th:first-child,
+.reviews-table-wrappper table td:first-child {
+  padding-left: 35px;
+}
+
+.reviews-table-wrappper table th:last-child,
+.reviews-table-wrappper table td:last-child {
+  padding-right: 60px;
+}
+
+.reviews-table-wrappper table thead th {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  color: #5E6761;
+  background: #D2F1DE;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.reviews-table-wrappper table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reviews-table-wrappper table tbody td {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #5E6761;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F2F2F2;
+}
+
+.reviews-table-wrappper table tbody td .picture {
+  width: 30px;
+}
+
+.reviews-table-wrappper table tbody td .picture img {
+  max-width: 100%;
+}
+
+.reviews-table-wrappper table tbody td .star-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.reviews-table-wrappper table tbody td .star-list .icon-star {
+  width: 16px;
+  height: 16px;
+  background: url(./../img/icon-star.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  margin-right: 2px;
+}
+
+.reviews-table-wrappper table .comment-wrapper {
+  position: relative;
+}
+
+.reviews-table-wrappper table .comment-wrapper .open-page {
+  position: absolute;
+  top: 0px;
+  right: -20px;
+  width: 12px;
+  height: 12px;
+  background: url(./../img/icon-open-window.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  cursor: pointer;
+  outline: none;
+}
+
+.reviews-table-wrappper table .comment-wrapper .comment-text {
+  padding-bottom: 20px;
+}
+
+.btn-white {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  color: #009239;
+  padding: 10px 15px;
+  border: 1px solid #009239;
+  border-radius: 50px;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-green {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  background: #009239;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: 1px solid #009239;
+  border-radius: 50px;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1350px) {
   .tabs-container .tabs-label-wrapper .tab-label {
     font-size: 14px;
