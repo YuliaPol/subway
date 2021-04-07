@@ -765,6 +765,7 @@ ul.pagination {
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
+    margin-bottom: 5px;
     &:hover {
         background: $maingreen;
     }
@@ -796,6 +797,31 @@ ul.pagination {
     width: 100%;
     background: #FFFFFF;
     padding-bottom: 20px;
+    &.faq-table {
+        padding-top: 25px;
+        table {
+            th,
+            td {
+                padding-left: 15px;
+                padding-right: 15px;
+                &:nth-child(1){
+                    width: 11%;
+                }
+                &:nth-child(2){
+                    width: 15%;
+                }
+                &:nth-child(3){
+                    width: 10%;
+                }
+                &:nth-child(4){
+                    width: 12%;
+                }
+                &:nth-child(5){
+                    width: 45%;
+                }
+            }
+        }
+    }
     .filter-table {
         padding-left: 35px;
         padding-right: 35px;
@@ -910,6 +936,7 @@ ul.pagination {
             }
             &:last-child {
                 padding-right: 60px;
+                min-width: 250px;
             }
         }
         thead {
@@ -1148,6 +1175,10 @@ ul.pagination {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .reviews-table-wrapper table .comment-wrapper .answer-wrapper .answer-body {
+        font-size: 12px;
+        line-height: 14px;
+    }
     .reviews-table-wrapper table tbody td .picture {
         width: 20px;
     }
@@ -1196,6 +1227,10 @@ ul.pagination {
     }
 }
 @media screen and (max-width: 992px) {
+    .download-wrap .download-text {
+        font-size: 14px;
+        line-height: 16px;
+    }
     .reviews-labels, .reviews-table-wrapper .filter-table {
         flex-wrap: wrap;
         .filter-item {

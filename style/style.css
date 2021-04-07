@@ -944,6 +944,7 @@ ul.pagination .next a {
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
+  margin-bottom: 5px;
 }
 
 .daterangepicker .drp-buttons .btn:hover {
@@ -980,6 +981,41 @@ ul.pagination .next a {
   width: 100%;
   background: #FFFFFF;
   padding-bottom: 20px;
+}
+
+.reviews-table-wrapper.faq-table {
+  padding-top: 25px;
+}
+
+.reviews-table-wrapper.faq-table table th,
+.reviews-table-wrapper.faq-table table td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.reviews-table-wrapper.faq-table table th:nth-child(1),
+.reviews-table-wrapper.faq-table table td:nth-child(1) {
+  width: 11%;
+}
+
+.reviews-table-wrapper.faq-table table th:nth-child(2),
+.reviews-table-wrapper.faq-table table td:nth-child(2) {
+  width: 15%;
+}
+
+.reviews-table-wrapper.faq-table table th:nth-child(3),
+.reviews-table-wrapper.faq-table table td:nth-child(3) {
+  width: 10%;
+}
+
+.reviews-table-wrapper.faq-table table th:nth-child(4),
+.reviews-table-wrapper.faq-table table td:nth-child(4) {
+  width: 12%;
+}
+
+.reviews-table-wrapper.faq-table table th:nth-child(5),
+.reviews-table-wrapper.faq-table table td:nth-child(5) {
+  width: 45%;
 }
 
 .reviews-table-wrapper .filter-table {
@@ -1153,6 +1189,7 @@ ul.pagination .next a {
 .reviews-table-wrapper table th:last-child,
 .reviews-table-wrapper table td:last-child {
   padding-right: 60px;
+  min-width: 250px;
 }
 
 .reviews-table-wrapper table thead th {
@@ -1422,6 +1459,10 @@ ul.pagination .next a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  .reviews-table-wrapper table .comment-wrapper .answer-wrapper .answer-body {
+    font-size: 12px;
+    line-height: 14px;
+  }
   .reviews-table-wrapper table tbody td .picture {
     width: 20px;
   }
@@ -1470,6 +1511,10 @@ ul.pagination .next a {
 }
 
 @media screen and (max-width: 992px) {
+  .download-wrap .download-text {
+    font-size: 14px;
+    line-height: 16px;
+  }
   .reviews-labels, .reviews-table-wrapper .filter-table {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
