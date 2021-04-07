@@ -792,7 +792,7 @@ ul.pagination {
     font-size: 12px;
     line-height: 14px; 
 }
-.reviews-table-wrappper {
+.reviews-table-wrapper {
     width: 100%;
     background: #FFFFFF;
     padding-bottom: 20px;
@@ -984,6 +984,73 @@ ul.pagination {
             .comment-text {
                 padding-bottom: 20px;
             }
+            .answer-wrapper {
+                margin-left: 20px;
+                margin-bottom: 20px;
+                padding: 10px;
+                background: #F2F2F2;
+                border-radius: 5px;
+                .top-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: 10px;
+                    font-family: $fontpage;
+                    font-style: italic;
+                    font-weight: normal;
+                    font-size: 10px;
+                    line-height: 11px;
+                    color: #000000;
+                }
+                .answer-body {
+                    font-family: $fontpage;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 15px;
+                    line-height: 17px;
+                    color: #5E6761;
+                }
+                & + .btn-white {
+                    margin-left: 20px;
+                }
+            }
+            .hidden-form-wrapper {
+                display: none;
+                position: relative;
+                .comment-input {
+                    margin-bottom: 15px;
+                    textarea {
+                        border: 1px solid #BEBEBE;
+                        border-radius: 5px;
+                        min-height: 80px;
+                        width: 100%;
+                        padding: 10px 15px;
+                        outline: none;
+                        resize: none;
+                        max-width: 340px;
+                        font-family: $fontpage;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 15px;
+                        line-height: 17px;
+                        color: #5E6761;
+                    }
+                }
+                .show-full-comment-wrapp {
+                    position: absolute;
+                    bottom: 25px;
+                    right: 0px;
+                    cursor: pointer;
+                    .icon {
+                        width: 12px;
+                        height: 12px;
+                        background: url(./../img/icon-show-full-comment.svg);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
         }
     }
 }
@@ -1037,8 +1104,70 @@ ul.pagination {
             padding-right: 20px;
         }
     }
+    .page-content .filter-wrapper .box input,
+    .page-content .filter-wrapper .box select {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .page-content .filter-wrapper .box h6 {
+        font-size: 12px;
+        line-height: 14px;  
+    }
+    .reviews-labels .review-label-box {
+        padding: 10px 5px;
+    }
+    .reviews-labels .review-label-box .info-col {
+        width: 70%;
+    }
+    .reviews-labels .review-label-box .icon-col {
+        width: 30%;
+    }
+    .reviews-table-wrapper .filter-table .filter-item .text {
+        font-size: 12px;
+        line-height: 14px; 
+    }
 }
 @media screen and (max-width: 1200px) {
+    .reviews-labels .review-label-box,
+    .page-content .filter-wrapper .box {
+        width: calc(25% - 10px);
+        margin: 5px;
+    }
+    .reviews-table-wrapper table th,
+    .reviews-table-wrapper table td {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .reviews-table-wrapper table thead th {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .reviews-table-wrapper table tbody td {
+        font-size: 12px;
+        line-height: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .reviews-table-wrapper table tbody td .picture {
+        width: 20px;
+    }
+    .reviews-table-wrapper table tbody td .star-list .icon-star {
+        width: 10px;
+    }
+    .reviews-table-wrapper table .comment-wrapper .hidden-form-wrapper .comment-input textarea {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .btn-green,
+    .btn-white {
+        padding: 5px 10px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .reviews-table-wrapper table .comment-wrapper .comment-text {
+        padding-bottom: 15px;
+    }
     .labels-wrapper .label-item {
         padding: 15px;
         .info-col .name {
@@ -1067,6 +1196,37 @@ ul.pagination {
     }
 }
 @media screen and (max-width: 992px) {
+    .reviews-labels, .reviews-table-wrapper .filter-table {
+        flex-wrap: wrap;
+        .filter-item {
+            width: 50%;
+            padding-bottom: 10px;
+        }
+    }
+    .btn-green,
+    .btn-white {
+        padding: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    .reviews-labels .review-label-box,
+    .page-content .filter-wrapper .box {
+        width: calc(33.3% - 10px);
+        margin: 5px;
+    }
+    .reviews-labels,
+    .reviews-table-wrapper .filter-table {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .reviews-table-wrapper table th:first-child,
+    .reviews-table-wrapper table td:first-child {
+        padding-left: 20px;
+    }
+    .reviews-table-wrapper table th:last-child,
+    .reviews-table-wrapper table td:last-child {
+        padding-right: 40px;
+    }
     .tabs-container .tabs-content-wrapper .tab-content .form-group .form-label {
         font-size: 14px;
         line-height: 16px;
@@ -1149,6 +1309,33 @@ ul.pagination {
     }
 }
 @media screen and (max-width: 500px) {
+    .reviews-labels,
+    .reviews-table-wrapper .filter-table {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .reviews-labels .review-label-box .info-col {
+        width: 75%;
+    }
+    .reviews-labels .review-label-box .icon-col {
+        width: 25%;
+    }
+    .reviews-labels .review-label-box .icon-col .icon-star {
+        width: 25px;
+        background-size: contain;
+        .icon-active {
+            background-size: 25px;
+        }
+    }
+    .reviews-labels .review-label-box,
+    .page-content .filter-wrapper .box {
+        width: calc(50% - 10px);
+        margin: 5px;
+    }
+    .reviews-table-wrapper .filter-table {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
     .companies-table-wrapper .pagination {
         padding-bottom: 80px;
     }

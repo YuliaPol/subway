@@ -46,5 +46,19 @@ jQuery(function ($) {
             this.style.height = 'auto';
             this.style.height = (this.scrollHeight) + 'px';
         });
+        $('.reviews-table-wrapper').on('click', '.show-form', function(e){
+            $(this).fadeOut(0);
+            $(this).parents('.comment-wrapper').find('.hidden-form-wrapper').fadeIn(300);
+        });
+        $('.reviews-table-wrapper').on('click', '.hide-form', function(e){
+            $(this).parents('.comment-wrapper').find('.show-form').fadeIn(300);
+            $(this).parents('.comment-wrapper').find('.hidden-form-wrapper').fadeOut(0);
+        });
+        $('.reviews-table-wrapper').on('click', '.show-full-comment-wrapp .icon', function(e){
+            let textarea = $(this).parents('.comment-wrapper').find('textarea')[0];
+            textarea.style.height = 'auto';
+            textarea.style.height =  (textarea.scrollHeight) + 20 + 'px';
+
+        });
     });
 });
