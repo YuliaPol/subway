@@ -1326,6 +1326,93 @@ ul.pagination {
     outline: none;
     text-decoration: none;
 }
+.template-empty {
+    background: #FFFFFF;
+    min-height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .template-header {
+        font-family: $fontpage;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 23px;
+        color: #414141;
+        text-align: center;
+        padding-bottom: 25px;
+    }
+    .picture {
+        max-width: 400px;
+        width: 80%;
+        margin: auto;
+        img {
+            max-width: 100%;
+        }
+    }
+    .btn-wrapper {
+        text-align: center;
+        padding-top: 25px;
+        .btn-green {
+            display: inline-block;
+            margin: 0px;
+            min-width: 180px;
+        }
+    }
+}
+.template-wrapper {
+    background: #FFFFFF;
+    min-height: calc(100vh - 130px);
+    padding: 25px 35px;
+    .template-header {
+        font-family: $fontpage;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #414141;
+        padding-bottom: 35px;
+    }
+    .create-template-box {
+        padding-bottom: 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .btn-wrapper {
+            padding: 0px;
+        }
+        .form-col {
+            width: calc(100% - 36px);
+            .input-wrapper {
+                width: 100%;
+                padding-bottom: 15px;
+                textarea {
+                    border: 1px solid #BEBEBE;
+                    border-radius: 5px;
+                    padding: 10px 15px;
+                    outline: none;
+                    width: 100%;
+                    resize: none;
+                    min-height: 80px;
+                }
+            }
+        }
+        .add-col {
+            width: 16px;
+            .add-plus {
+                width: 16px;
+                height: 16px;
+                background: url(./../img/icon-green-plus.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
 @media screen and (max-width: 1350px) {
     .tabs-container .tabs-label-wrapper .tab-label {
         font-size: 14px;
@@ -1437,8 +1524,21 @@ ul.pagination {
         font-size: 14px;
         line-height: 16px;
     }
+    .template-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 @media screen and (max-width: 992px) {
+    .template-wrapper .template-header {
+        padding-bottom: 20px;
+    }
+    .template-wrapper .create-template-box {
+        padding-bottom: 20px;
+        .form-col {
+            width: calc(100% - 30px);
+        }
+    }
     .tabs-container .password-row {
         flex-direction: column;
         align-items: flex-start;

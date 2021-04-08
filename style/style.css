@@ -1665,6 +1665,127 @@ ul.pagination .next a {
   text-decoration: none;
 }
 
+.template-empty {
+  background: #FFFFFF;
+  min-height: calc(100vh - 130px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.template-empty .template-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  color: #414141;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.template-empty .picture {
+  max-width: 400px;
+  width: 80%;
+  margin: auto;
+}
+
+.template-empty .picture img {
+  max-width: 100%;
+}
+
+.template-empty .btn-wrapper {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.template-empty .btn-wrapper .btn-green {
+  display: inline-block;
+  margin: 0px;
+  min-width: 180px;
+}
+
+.template-wrapper {
+  background: #FFFFFF;
+  min-height: calc(100vh - 130px);
+  padding: 25px 35px;
+}
+
+.template-wrapper .template-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #414141;
+  padding-bottom: 35px;
+}
+
+.template-wrapper .create-template-box {
+  padding-bottom: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.template-wrapper .create-template-box .btn-wrapper {
+  padding: 0px;
+}
+
+.template-wrapper .create-template-box .form-col {
+  width: calc(100% - 36px);
+}
+
+.template-wrapper .create-template-box .form-col .input-wrapper {
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.template-wrapper .create-template-box .form-col .input-wrapper textarea {
+  border: 1px solid #BEBEBE;
+  border-radius: 5px;
+  padding: 10px 15px;
+  outline: none;
+  width: 100%;
+  resize: none;
+  min-height: 80px;
+}
+
+.template-wrapper .create-template-box .add-col {
+  width: 16px;
+}
+
+.template-wrapper .create-template-box .add-col .add-plus {
+  width: 16px;
+  height: 16px;
+  background: url(./../img/icon-green-plus.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1350px) {
   .tabs-container .tabs-label-wrapper .tab-label {
     font-size: 14px;
@@ -1774,9 +1895,22 @@ ul.pagination .next a {
     font-size: 14px;
     line-height: 16px;
   }
+  .template-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media screen and (max-width: 992px) {
+  .template-wrapper .template-header {
+    padding-bottom: 20px;
+  }
+  .template-wrapper .create-template-box {
+    padding-bottom: 20px;
+  }
+  .template-wrapper .create-template-box .form-col {
+    width: calc(100% - 30px);
+  }
   .tabs-container .password-row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
