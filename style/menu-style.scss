@@ -275,6 +275,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                         width: 17px;
                         height: 17px;
                         margin-right: 4px;
+                        margin-bottom: -2px;
                         &.icon-my-companies {
                             background: url(./../img/icon-myCompanies.svg);
                             background-position: center;
@@ -301,6 +302,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                         }
                         &.icon-price {
                             background: url(./../img/icon-price.svg);
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+                        &.icon-settings {
+                            background: url(./../img/icon-settingts.svg);
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: contain;
@@ -338,6 +345,27 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                                 background-repeat: no-repeat;
                                 background-size: contain;
                             }
+                            &.icon-settings {
+                                background: url(./../img/icon-settingts-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                        }
+                        &.treeview {
+                            position: relative;
+                            &::after {
+                                background: url(./../img/icon-menu-arrow-active.svg);
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            .treeview-menu {
+                                display: block;
+                                a {
+                                    background: #ffffff;
+                                }
+                            }
                         }
                         a {
                             background: #009239;
@@ -370,35 +398,48 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
                         &::after {
                             content: ' ';
                             position: absolute;
-                            top: 15px;
+                            top: 20px;
                             right: 15px;
                             width: 16px;
                             height: 10px;
-                            background: url(./../img/arrow.svg);
+                            background: url(./../img/icon-menu-arrow.svg);
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: contain;
                             transition: transform 0.3s ease-in;
                             pointer-events: none;
                         }
-                        &.hiddden-menu {
+                        &.hidden-menu {
                             &::after {
-                                transform: rotate(-90deg);
+                                transform: rotate(-180deg);
                             }
                         }
                         .treeview-menu {
+                            display: none;
                             a {
-                                font-family: Helvetica;
+                                font-family: $fontpage;
                                 font-style: normal;
                                 font-weight: normal;
                                 font-size: 14px;
                                 line-height: 16px;
-                                color: #374448;
+                                color: #807E7E;
                                 transition: all 0.3s ease-in;
                                 width: 100%;
                                 text-decoration: none;
                                 outline: none;
                                 border-right: 4px solid transparent;
+                                padding-left: 70px;
+                                position: relative;
+                                &::before {
+                                    content: "";
+                                    width: 4px;
+                                    height: 4px;
+                                    position: absolute;
+                                    background: #807E7E;
+                                    border-radius: 50%;
+                                    left: 55px;
+                                    top: calc(50% - 2px);
+                                }
                             }
                             .active {
                                 a {
@@ -474,12 +515,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
             margin: 0px;
             padding: 0px;
             list-style: none;
+            flex-wrap: wrap;
             li {
                 display: block;
                 padding-right: 5px;
                 margin: 0px;
                 color: #505050;
                 font-size: 14px;
+                padding-bottom: 5px;
                 a {
                     color: #505050;
                     font-size: 14px;

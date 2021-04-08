@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./style/menu-style.css">
+    <link rel="stylesheet" href="./style/style.css?5468465454654">
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/script.js?4584545454"></script>
+    <script src="./js/script-companies.js?5468468654"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="navbar-aside">
+                <button type="button" class="btn-aside-menu toggle-sidebar">
+                </button>
+            </div>
+            <div class="navbar-user">
+                <div class="user">
+                    <div class="user-wrapper show-user-dropdown">
+                        <div class="icon-user"></div>
+                        <div class="user-name">ADMINS</div>
+                    </div>
+                    <div class="dropdown-user">
+                        <ul>
+                            <li>
+                                <a href="#" class="logout">Выход </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="menu-sidebar">
+                <div class="logo">
+                    <a href="#">
+                        <img src="./img/logo.png" alt="Subways">
+                    </a>
+                </div>
+                <div class="menu">
+                    <nav>
+                        <ul class="sidebar-nav treeview-menu">
+                            <li>
+                                <a href="./companies.html">
+                                    <span class="icon icon-my-companies"></span> Мои компании</a>
+                            </li>
+                            <li>
+                                <a href="./resources.html">
+                                    <span class="icon icon-my-resources"></span> Источники</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">
+                                    <span class="icon icon-reviews"></span> Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">
+                                    <span class="icon icon-faq"></span> Вопросы и ответы</a>
+                            </li>
+                            <li>
+                                <a href="./price.html">
+                                    <span class="icon icon-price"></span> Цены</a>
+                            </li>
+                            <li class="treeview active">
+                                <a class="show-submenu" href="#"><span class="icon icon-settings"></span> Настройки</a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="#">Профиль</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Шаблоны</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./price.html">
+                                    <span class="icon"></span> Помощь</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="breadcrumps">
+                <ul> 
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i> Мои Настройки</a> /
+                    </li>
+                    <li>
+                        <span>
+                            Профиль 
+                        </span> /
+                    </li>
+                    <li>
+                        <span class="changed-breadcrumps">
+                            Персональная информация
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="tabs-container">
+                <div class="tabs-label-wrapper">
+                    <div class="tab-label active" data-open="tab-content-1">
+                        Персональная информация
+                    </div>
+                    <div class="tab-label" data-open="tab-content-2">
+                        Интеграция 
+                    </div>
+                    <div class="tab-label" data-open="tab-content-3">
+                        Смена пароля
+                    </div>
+                    <div class="tab-label" data-open="tab-content-4">
+                        Двух-факторная авторизация
+                    </div>
+                </div>
+                <div class="tabs-content-wrapper">
+                    <div class="tab-content active tab-content-1">
+                        <p class="attention-text">
+                            По данным контактам с Вами могут связаться, для уточнения данных
+                        </p>
+                        <form action="#">
+                            <div class="contact-form required-input">
+                                <div class="input-label">
+                                    <label for="user-name">Имя</label>
+                                </div>
+                                <input type="text" name="q-1" id="user-name">
+                            </div>
+                            <div class="contact-form required-input">
+                                <div class="input-label">
+                                    <label for="email-name">E-mail</label>
+                                </div>
+                                <input type="email" name="q-2" id="user-email">
+                            </div>
+                            <div class="notifications-settings">
+                                <div class="settings-header">
+                                    Настройка уведомлений
+                                </div>
+                                <div class="settings-item">
+                                    <input type="checkbox" name="q-3" id="one-per-hour">
+                                    <label for="one-per-hour">
+                                        <div class="checkbox-icon">
+                                            <span class="checkmark">
+                                                <div class="checkmark_stem"></div>
+                                                <div class="checkmark_kick"></div>
+                                            </span>
+                                        </div>
+                                        <div class="text">
+                                            Получать уведомления об отзывах раз в час
+                                        </div>    
+                                    </label>
+                                </div>
+                                <div class="settings-item">
+                                    <input type="checkbox" name="q-3" id="one-per-day">
+                                    <label for="one-per-day">
+                                        <div class="checkbox-icon">
+                                            <span class="checkmark">
+                                                <div class="checkmark_stem"></div>
+                                                <div class="checkmark_kick"></div>
+                                            </span>
+                                        </div>
+                                        <div class="text">
+                                            Получать уведомления об отзывах раз в сутки
+                                        </div>    
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="btn-submit-wrapper">
+                                <button class="btn-green" type="submit">Сохранить изменения</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content tab-content-2">
+                    </div>
+                    <div class="tab-content tab-content-3">
+                        <p class="attention-text">
+                            Введите Ваш нынешний пароль, затем новый дважды. После нажатия кнопки “Сохранить”, Ваш пароль будет изменен.  
+                        </p>
+                        <form action="#">
+                            <div class="password-row required-input">
+                                <div class="label-col">
+                                    <label for="password-1">Ваш пароль</label>
+                                </div>
+                                <div class="input-col">
+                                    <div class="password-input">
+                                        <input type="password" name="q-1" id="password-1">
+                                        <div class="show-password"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="password-row required-input">
+                                <div class="label-col">
+                                    <label for="password-2">Новый пароль</label>
+                                </div>
+                                <div class="input-col">
+                                    <div class="password-input">
+                                        <input type="password" name="q-2" id="password-2">
+                                        <div class="show-password"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="password-row required-input">
+                                <div class="label-col">
+                                    <label for="password-3">Введите повторно новый пароль</label>
+                                </div>
+                                <div class="input-col">
+                                    <div class="password-input">
+                                        <input type="password" name="q-3" id="password-3">
+                                        <div class="show-password"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-submit-wrapper">
+                                <button class="btn-green" type="submit">Сохранить изменения</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-content tab-content-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scrollup">
+        <a href="#" class="text-white"><i class="fa fa-chevron-up"></i></a>
+    </div>
+</body>
+
+</html>

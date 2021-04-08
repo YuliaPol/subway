@@ -60,5 +60,42 @@ jQuery(function ($) {
             textarea.style.height =  (textarea.scrollHeight) + 20 + 'px';
 
         });
+        $('.show-submenu').click(function(e){
+            e.preventDefault();
+            let menuItem = $(this).parents('.treeview');
+            if(menuItem.hasClass('hidden-menu')){
+                menuItem.removeClass('hidden-menu');
+                console.log(menuItem.find('.treeview-menu'));
+                menuItem.find('.treeview-menu').fadeIn(300);
+            }
+            else {
+                menuItem.addClass('hidden-menu');
+                menuItem.find('.treeview-menu').fadeOut(300);
+            }
+        });
+        $('form').on('submit', function(e){
+            let elements = $(this).find('.required-input')
+            let arError = new Array();
+            for (let index = 0; index < elements.length; index++) {
+                if(!$(elements[index]).find('input').val()){
+                    $(elements[index]).addClass('has-error');
+                    arError.push($(elements[index]).find('input'));
+                    $(elements[index]).find('input').on('focus', function(e){
+                        $(this).parents('.required-input').removeClass('has-error');
+                    })
+                }
+            }
+            if(arError.length > 0) {
+                return false;
+            }
+        });
+        $('.show-password').click(function(e){
+            if($(this).parent().find('input').attr('type') === 'password') {
+                $(this).parent().find('input').attr('type', 'text')
+            }
+            else {
+                $(this).parent().find('input').attr('type', 'password')
+            }
+        });
     });
 });
