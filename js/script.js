@@ -97,5 +97,18 @@ jQuery(function ($) {
                 $(this).parent().find('input').attr('type', 'password')
             }
         });
+        $('.template-wrapper').on('click', '.copy-text', function(e){
+            var text = $(this).parents('.template-block').find('.copied-text').text();
+            var elem = document.createElement("textarea");
+            document.body.appendChild(elem);
+            elem.value = text;
+            elem.select();
+            document.execCommand("copy");
+            $(this).find('.info-text').fadeIn(300);
+            setTimeout(()=>{
+                $(this).find('.info-text').fadeOut(300);
+            }, 1000);
+            elem.remove();
+        })
     });
 });

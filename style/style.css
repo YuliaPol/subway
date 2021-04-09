@@ -1786,6 +1786,142 @@ ul.pagination .next a {
   cursor: pointer;
 }
 
+.template-wrapper .templates-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.template-wrapper .templates-list .template-block {
+  width: calc(33.3% - 40px);
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid #F8B800;
+  padding: 10px 15px;
+  min-height: 180px;
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.template-wrapper .templates-list .template-block.empty-block {
+  border: 1px solid #BEBEBE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.template-wrapper .templates-list .template-block.empty-block .add-template {
+  width: 60px;
+  height: 60px;
+  background: url(./../img/icon-grey-plus.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.template-wrapper .templates-list .template-block .template-delete {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background: url(./../img/icon-delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+}
+
+.template-wrapper .templates-list .template-block .template-body {
+  height: 140px;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.template-wrapper .templates-list .template-block .template-body .number {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #F8B800;
+}
+
+.template-wrapper .templates-list .template-block .template-body .template-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #514B4B;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -ms-line-clamp: 6;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  padding-right: 10px;
+}
+
+.template-wrapper .templates-list .template-block .copy-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 17px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  color: #009239;
+  cursor: pointer;
+  position: relative;
+}
+
+.template-wrapper .templates-list .template-block .copy-text .info-text {
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  -webkit-box-shadow: 0px 0px 10px rgba(51, 42, 124, 0.2);
+          box-shadow: 0px 0px 10px rgba(51, 42, 124, 0.2);
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #514B4B;
+  font-size: 12px;
+  line-height: 14px;
+}
+
 @media screen and (max-width: 1350px) {
   .tabs-container .tabs-label-wrapper .tab-label {
     font-size: 14px;
@@ -1826,6 +1962,23 @@ ul.pagination .next a {
 }
 
 @media screen and (max-width: 1200px) {
+  .template-wrapper .templates-list .template-block {
+    width: calc(33.3% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #F8B800;
+    padding: 10px 15px;
+    min-height: 180px;
+    position: relative;
+    margin-bottom: 35px;
+  }
+  .template-wrapper .template-header {
+    padding-bottom: 20px;
+  }
+  .template-wrapper .templates-list {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
   .reviews-labels .review-label-box,
   .page-content .filter-wrapper .box {
     width: calc(25% - 10px);
@@ -1902,6 +2055,16 @@ ul.pagination .next a {
 }
 
 @media screen and (max-width: 992px) {
+  .template-wrapper .templates-list .template-block {
+    width: calc(50% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #F8B800;
+    padding: 10px 15px;
+    min-height: 180px;
+    position: relative;
+    margin-bottom: 35px;
+  }
   .template-wrapper .template-header {
     padding-bottom: 20px;
   }
@@ -2047,6 +2210,19 @@ ul.pagination .next a {
 }
 
 @media screen and (max-width: 500px) {
+  .template-wrapper .templates-list .template-block {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    border: 1px solid #F8B800;
+    padding: 10px 15px;
+    min-height: 180px;
+    position: relative;
+    margin-bottom: 35px;
+  }
+  .template-wrapper .templates-list {
+    margin: 0px;
+  }
   .reviews-labels,
   .reviews-table-wrapper .filter-table {
     padding-left: 15px;
